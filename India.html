@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Bootstrap -->
+  <link rel="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/chronicle-display" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    .header {
+      position: fixed;
+      height: 100px;
+      text-align: center;
+      background-color: white;
+    }
+
+    /* On scroll */
+    .header span.span2 {
+      background: #000000;
+    }
+
+    /* On scroll */
+    .header span.span3 {
+      background: #000000;
+    }
+
+    /* On scroll */
+    .header span.span1 {
+      background: #000000;
+    }
+
+    .menu-btn {
+      color: black;
+    }
+
+    .space {
+      height: 40vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "chronicle display";
+      font-weight: 300 !important;
+    }
+
+    p {
+      font-family: "maven pro";
+      font-weight: 400;
+      font-size: 16px !important;
+    }
+
+    .footer-center ul li a {
+      color: black !important;
+    }
+
+    .footer-center ul li a:hover {
+      color: #b89a44 !important;
+    }
+
+    .footer-left a {
+      color: #a78d4b !important;
+      text-decoration: none;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+
+    .footer-right a {
+      color: #000 !important;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-left p {
+      font-size: 14px !important;
+      color: #555;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      margin-right: 14px;
+    }
+
+    p {
+      font-family: "maven pro";
+      font-weight: 400;
+      font-size: 16px !important;
+    }
+
+    .about-us-section {
+      margin-top: 10rem;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .india-cards {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .india-card {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      /* push content down */
+      justify-content: center;
+      padding: 60px 40px;
+      /* spacing inside */
+      overflow-x: hidden;
+
+    }
+
+    /* Replace with your own images */
+    .card1 {
+      background-image: url("Assets/india-stackcard-1.png");
+      z-index: 1;
+    }
+
+    .card2 {
+      background-image: url("Assets/india-stackcard-2.png");
+      z-index: 2;
+    }
+
+    .card3 {
+      background-image: url("Assets/india-stackcard-3.png");
+      z-index: 3;
+    }
+
+    .card4 {
+      background-image: url("Assets/commercial.jpg");
+      z-index: 4;
+    }
+
+    .card5 {
+      background-image: url("Assets/avasa-stack.jpg");
+      z-index: 4;
+    }
+
+    /* Card inner layout */
+    .card-content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* Left (logo + location) */
+    .card-left {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .card-left img {
+      width: 190px;
+      height: auto;
+
+    }
+
+    .location {
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+
+    /* Right (text + button) */
+    .card-right {
+      flex: 1;
+      min-width: 250px;
+
+      padding: 0px 30px;
+
+    }
+
+    .card-right h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-right p {
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+
+    }
+
+    .btn-learn {
+      background-color: #ab904c !important;
+      color: white;
+      padding: 6px 18px !important;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-size: 16px;
+      border: none !important;
+    }
+
+    .btn-learn:hover {
+      background: #b89a44;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .card-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card-left img {
+        width: 90px;
+      }
+
+      .card-right h1 {
+        font-size: 1.5rem;
+      }
+
+      .card-right p {
+        font-size: 0.95rem;
+      }
+
+      .gallery-title {
+        text-align: center;
+      }
+
+      .gallery-title {
+        font-size: 30px !important;
+        font-weight: 600 !important;
+        margin-bottom: 20px !important;
+        font-family: "chronicle display" !important;
+      }
+
+      .about-us-section {
+        margin-top: 0rem;
+      }
+
+    }
+
+    @media (max-width: 768px) {
+      .india-cards {
+        position: relative;
+        height: 85vh !important;
+        /* always fill full viewport height */
+        overflow: hidden;
+      }
+
+      .india-card {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 85vh !important;
+        padding: 19px 11px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .card-content {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .card-left img {
+        width: 110px;
+      }
+
+      .location {
+        font-size: 18px;
+        margin-top: 8px;
+        color: white
+      }
+
+      .card-right {
+        padding: 0;
+      }
+
+      .card-right p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+      }
+
+      .btn-learn {
+        font-size: 16px;
+        border: 2px solid white !important;
+        width: 60%;
+      }
+
+      .india-gap {
+        margin-top: 8rem;
+      }
+    }
+
+    .india-gap {
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 480px) {
+      .card-left img {
+        width: 136px;
+      }
+
+      .card-right p {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+    }
+
+    .hero {
+      margin-top: 20px;
+    }
+
+    .footer-col {
+      flex: 1 1 250px;
+      margin: 15px;
+    }
+
+    .footer-col img.logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .footer-col p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 6px 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-links-left p,
+    .footer-links-right p {
+      margin: 5px 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .gallery-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-family: "chronicle display";
+    }
+
+    p {
+      font-family: "maven pro";
+      font-size: 18px;
+
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+
+    .container-fluid {
+      overflow-x: hidden;
+    }
+
+    /* ===== Fine-tune mobile image height ===== */
+    @media (max-width: 768px) {
+      .india-card {
+        background-size: cover;
+        background-position: center top;
+        /* shifts focus upward */
+
+      }
+
+      .card-content {
+        padding-bottom: 20px;
+        /* brings text up slightly */
+      }
+
+      .copyright {
+        font-size: 16px !important;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .india-card {
+        background-position: center 20%;
+        /* crop slightly from bottom */
+      }
+
+      .card-content {
+        padding-bottom: 15px;
+      }
+    }
+
+    .copyright {
+      font-size: 18px;
+      padding: 10px;
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:active {
+      background-color: #ab904c;
+    }
+
+    .about-us-section {
+
+      background-color: #ffffff;
+      /* White background */
+      padding-left: 3rem;
+      padding-right: 3rem;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .card {
+      position: sticky;
+      top: 50%;
+    }
+
+    .cards-section {
+      position: relative;
+      padding-top: 100px;
+      /* space below navbar */
+    }
+
+    .card {
+      position: sticky;
+      top: 50%;
+      /* stick at middle */
+      transform: translateY(-50%);
+      z-index: 1;
+      margin-bottom: 50px;
+      /* spacing between cards */
+    }
+
+
+    .card__inner {
+      will-change: transform;
+      background: #ab904c;
+      border-radius: 14px;
+      display: flex;
+      overflow: hidden;
+      /* box-shadow: 0 25px 50px -12px hsla(265.3, 20%, 10%, 35%); */
+      transform-origin: center top;
+    }
+
+    .cards {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: repeat(var(--cards-count), var(--card-height));
+      gap: 40px 0;
+    }
+
+
+    @media (max-width: 490px) {
+      .cards {
+        width: 100%;
+      }
+
+      .logo {
+        width: 150px;
+      }
+    }
+
+
+    .card__image-container {
+      display: flex;
+      width: 40%;
+      flex-shrink: 0;
+    }
+
+    .card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
+
+    .card__content {
+      padding: 130px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card__title {
+      padding: 0;
+      margin: 0;
+      font-size: 28px;
+      font-weight: 400;
+      color: white;
+      font-family: 'Chronicle Display', serif !important;
+    }
+
+    .card__description {
+      line-height: 1.2;
+      font-size: 18px;
+      color: white;
+      font-family: 'Maven Pro', sans-serif !important;
+      padding-top: 25px;
+      width: 90%;
+    }
+
+    .space {
+      height: 40vh;
+    }
+
+    .icon-container {
+      margin-bottom: 8px;
+    }
+
+    .icon-container img {
+      width: 40px;
+      /* height: 40px; */
+    }
+
+
+
+
+    @media (max-width: 490px) {
+      .card__inner {
+        flex-direction: column;
+      }
+
+      .card__image-container {
+        width: 100%;
+      }
+
+      .card__image {
+        aspect-ratio: 9 / 9;
+      }
+
+      .card__title {
+        font-size: 24px;
+      }
+
+      .card__description {
+        font-size: 14px;
+      }
+
+      .card__content {
+        padding: 30px 20px;
+      }
+
+      .text {
+        color: white;
+        text-align: start;
+        margin-top: 8px;
+      }
+
+      p {
+        font-family: "maven pro";
+        font-size: 18px;
+        padding: 0px;
+        text-align: center;
+      }
+    }
+
+    a {
+
+      color: white !important;
+      text-decoration: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="menu-btn" onclick="openMenu()">
+      MENU
+      <div class="hamburger">
+        <span class="span1"></span>
+        <span class="span2"></span>
+        <span class="span3"></span>
+      </div>
+    </div>
+
+    <div class="logo">
+      <a href="index.html"><img src="Assets/anvita-blue.png" width="70%" /></a>
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+  <!-- Slide Menu -->
+  <div class="side-menu" id="sideMenu">
+
+    <div class="menu-close" onclick="closeMenu()">✕</div>
+
+    <ul class="menu-top">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Aboutus.html">About us </a></li>
+      <li><a href="PRE.html">Press Release & Events</a></li>
+      <li onclick="toggleSubmenu(this)">
+        <a href="project.html">Projects</a> <span class="arrow">→</span>
+        <ul class="submenu">
+          <li><a href="India.html">Ongoing</a></li>
+          <li><a href="USA.html">Upcoming</a></li>
+          <li><a href="Dubai.html">Completed</a></li>
+        </ul>
+      </li>
+      <li><a href="CSR.html">CSR</a></li>
+      <!-- <li><a href="Gallery.html">Gallery</a></li> -->
+    </ul>
+
+
+
+  </div>
+
+  <script>
+    function openMenu() {
+      document.getElementById('sideMenu').classList.add('active');
+      document.getElementById('overlay').classList.add('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('sideMenu').classList.remove('active');
+      document.getElementById('overlay').classList.remove('active');
+    }
+
+    function toggleSubmenu(element) {
+      if (element.querySelector('.submenu')) {
+        element.classList.toggle('open');
+      }
+    }
+  </script>
+
+  <!-- ✅ Sticky Contact Button (Mobile Only) -->
+  <a href="Contact.html" class="sticky-contact-btn d-lg-none">Contact Us</a>
+  <div class="about-us-section">
+    <h2 class="gallery-titlee text-center" data-aos="fade-down">
+      India Projects
+    </h2>
+  </div>
+  <div class="container-fluid p-0  d-lg-inline-block">
+    <div class="row">
+      <div class="col-12">
+        <div class="india-cards">
+
+          <!-- Card 1 (static first card) -->
+          <div class="india-card card1">
+            <div class="card-content">
+              <div class="card-left">
+                <img src="Assets/ivana-logo.png" alt="Logo" width="70">
+                <div class="location"><i class="bi bi-geo-alt-fill"></i>&nbsp Kollur, Hyderabad</div>
+              </div>
+              <div class="card-right">
+
+                <p>Premium high-rise apartments and uber-luxury <br>sky villas in Kollur.</p>
+                <button class="btn-learn"><a href="ivana.html">Learn More</a></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="india-card card2">
+            <div class="card-content">
+              <div class="card-left">
+                <img src="Assets/highnine.png" alt="Logo">
+                <div class="location"><i class="bi bi-geo-alt-fill"></i>&nbsp Kollur, Hyderabad</div>
+              </div>
+              <div class="card-right">
+
+                <p>Sky Luxury Living in 30-floor towers with 80% open space and a massive
+                  1,00,000 Sft clubhouse complex in Kollur.</p>
+                <button class="btn-learn"><a href="highnine.html">Learn More</a></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="india-card card3">
+            <div class="card-content">
+              <div class="card-left">
+                <img src="Assets/avnitha-parkside-logo.png" alt="Logo">
+                <div class="location"><i class="bi bi-geo-alt-fill"></i>&nbsp Sky High</div>
+              </div>
+              <div class="card-right">
+
+                <p>An expansive 50-acre gated villa community in Medchal, featuring
+                  nature-inspired, solar-powered homes and 75% open space.</p>
+                <button class="btn-learn"><a href="parkside.html">Learn More</a></button>
+              </div>
+            </div>
+          </div>
+          <div class="india-card card4">
+            <div class="card-content">
+              <div class="card-left">
+                <h2>Anvita<br> Commercial</h2>
+                <div class="location"><i class="bi bi-geo-alt-fill"></i>&nbsp Kollur, Hyderabad</div>
+              </div>
+              <div class="card-right">
+
+                <p>When you are looking for an amazing luxury apartment with an enviable bouquet of features and
+                  amenities, combined with the location</p>
+                <button class="btn-learn"><a href="">Learn More</a></button>
+              </div>
+            </div>
+          </div>
+          <div class="india-card card5">
+            <div class="card-content">
+              <div class="card-left">
+                <img src="Assets/avasa.png" alt="Logo" width="70">
+                <div class="location"><i class="bi bi-geo-alt-fill"></i>&nbsp Kollur, Hyderabad</div>
+              </div>
+              <div class="card-right">
+
+                <p>Elevate your life with a dream villa in a fabulous location in Hyderabad. Villas with a personality
+                  that speaks of masterly style and elegance. </p>
+                <button class="btn-learn"><a href="">Learn More</a></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // ✅ Dynamic viewport height fix (for mobile white gap)
+    function setViewportHeight() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+  </script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    function setupIndiaCards() {
+      // Reset any existing ScrollTriggers
+      ScrollTrigger.getAll().forEach(t => t.kill());
+      gsap.set(".india-card", { clearProps: "all" });
+
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const cards = gsap.utils.toArray(".india-card");
+
+      // Ensure parent & cards fill full viewport for perfect overlap
+      gsap.set(".india-cards", {
+        height: "100vh",
+        position: "relative",
+        overflow: "hidden"
+      });
+      gsap.set(cards, {
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100vh"
+      });
+
+      // Create timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".india-cards",
+          pin: true,
+          scrub: 1,
+          start: "top top",
+          end: `+=${cards.length * 800}` // adjust smoothness / scroll distance
+        }
+      });
+
+      // Animate each card in sequence (each one overlaps 100%)
+      cards.forEach((card, i) => {
+        if (i !== 0) {
+          tl.from(card, {
+            yPercent: 100,
+            opacity: 0,
+            ease: "none"
+          }, "+=0.3");
+        }
+      });
+    }
+
+    setupIndiaCards();
+
+    // Recalculate if viewport changes
+    window.addEventListener("resize", () => {
+      ScrollTrigger.refresh();
+    });
+
+  </script>
+
+
+
+  <!-- footer and above section-->
+
+  <div class="footer-new">
+    <!-- Hero Section -->
+    <section class="heroo-section">
+      <h1>Begin Your Journey With Anvita</h1>
+      <p>Discover how our communities can elevate your lifestyle. Connect with us today.</p>
+      <button class="cta-btn">Get a call back</button>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer-section">
+      <div class="footer-left">
+        <img src="Assets/anvita-blue.png" alt="Anvita Logo" />
+        <p>Since 2005, we have been dedicated to crafting projects with unmatched quality and attention to detail,
+          earning the trust of our clients.</p>
+        <a href="#"><i class="bi bi-facebook fs-3"></i></a> <a href="#"><i class="bi bi-instagram fs-3"></i></a>
+      </div>
+
+      <div class="footer-center">
+        <ul>
+          <li><a href="Aboutus.html">About Us</a></li>
+          <li><a href="Projectinnerpage.html">Projects</a></li>
+          <li><a href="CSR.html">CSR</a></li>
+          <!-- <li><a href="Gallery.html">Gallery</a></li> -->
+        </ul>
+
+        <ul>
+          <li><a href="PRE.html">Press Release and Events</a></li>
+          <!-- <li><a href="#">Terms & Conditions</a></li> -->
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-right">
+        <p>+91-9912312399</p>
+        <a href="mailto:info@anvitagroup.com">info@anvitagroup.com</a>
+      </div>
+    </section>
+
+    <p class="copyright">
+      © 2025 <strong>Anvita Group.</strong> All Rights Reserved.
+    </p>
+  </div>
+
+  <!-- footer and above section end-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    $('.dropdown').mouseover(function () {
+      if ($('.navbar-toggler').is(':hidden')) {
+        $(this).addClass('show').attr('aria-expanded', 'true');
+        $(this).find('.dropdown-menu').addClass('show');
+      }
+    }).mouseout(function () {
+      if ($('.navbar-toggler').is(':hidden')) {
+        $(this).removeClass('show').attr('aria-expanded', 'false');
+        $(this).find('.dropdown-menu').removeClass('show');
+      }
+    });
+
+    // Go to the parent link on click
+    $('.dropdown > a').click(function () {
+      location.href = this.href;
+    });
+  </script>
+  <script>
+
+    // AOS init
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+    var swiper = new Swiper(".hero-slider", {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      effect: "fade",
+      speed: 2000,
+      fadeEffect: {
+        crossFade: true // 🔥 this ensures only one text is visible
+      }
+    });
+  </script>
+</body>
+
+</html>

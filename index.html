@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anvita </title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://fonts.cdnfonts.com/css/chronicle-display" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.green.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css">
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+  <!-- Custom CSS -->
+
+  <link rel="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="style.css" rel="stylesheet">
+
+  <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Chronicle Display" !important;
+      font-weight: 300 !important;
+
+    }
+
+
+    p {
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+      color: #555;
+      font-weight: 400 !important;
+    }
+
+
+    .menu-top,
+    .submenu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0px;
+    }
+
+    .menu-text {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .arrow {
+      background: none;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    /* rotate arrow */
+    .has-submenu.open>.menu-link .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* submenu animation */
+    /* reset submenu */
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding-left: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease;
+    }
+
+    .has-submenu.open>.submenu {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    /* indent only child menu items */
+    .submenu>li>a,
+    .submenu>li>.menu-link {
+      padding-left: 32px;
+    }
+
+
+    /* mobile spacing */
+    @media (max-width: 768px) {
+      .menu-link {
+        /* padding: 14px 18px; */
+      }
+    }
+
+    /* overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s ease;
+      z-index: 9998;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* side menu */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100vh;
+      background: #fff;
+      z-index: 9999;
+      padding: 30px 20px;
+      transition: right 0.35s ease;
+      overflow-y: auto;
+    }
+
+    .side-menu.active {
+      right: 0;
+    }
+
+    /* social icons */
+    .social-icons {
+      position: fixed;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 99999;
+    }
+
+    .social-icons a {
+      width: 42px;
+      height: 42px;
+      background-color: #ab904c !important;
+      ;
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    /* ✅ MOBILE BOTTOM STICKY */
+    @media (max-width: 768px) {
+      .social-icons {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: white !important;
+        ;
+        padding: 12px 10px;
+        border-top: 1px solid #ddd;
+      }
+
+      .social-icons a {
+        width: 45px;
+        height: 45px;
+        background: #000;
+        font-size: 18px;
+      }
+    }
+
+    .pg-btn {
+      font-family: "Chronicle Display" !important;
+      background-color: #ab904c !important;
+      color: white !important;
+      border: none;
+    }
+
+    /* ✅ Carousel Indicators (Dots) Styling */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 45px;
+      left: 65%;
+      transform: translateX(-50%);
+      z-index: 15;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      box-sizing: content-box;
+      flex: 0 1 auto;
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      margin-right: 3px;
+      margin-left: 3px;
+      text-indent: -999px;
+      cursor: pointer;
+      background-color: #3d3c3c !important;
+      background-clip: padding-box;
+      border: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      opacity: .5;
+      transition: opacity .6s ease;
+    }
+
+    .carousel-indicators .active {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+
+    <div class="header">
+      <div class="menu-btn" onclick="openMenu()">
+        MENU
+        <div class="hamburger">
+          <span class="span1"></span>
+          <span class="span2"></span>
+          <span class="span3"></span>
+        </div>
+      </div>
+
+      <div class="logo">
+        <a href="index.html"> <img src="Assets/logo-light.png" class="logoo" alt="Logo"></a>
+      </div>
+
+      <div class="spacer"></div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+    <!-- Slide Menu -->
+    <div class="side-menu" id="sideMenu">
+
+      <div class="menu-close" onclick="closeMenu()">✕</div>
+      <ul class="menu-top">
+
+        <li><a href="index.html">Home</a></li>
+        <!-- PROJECTS -->
+        <li class="has-submenu">
+          <div class="menu-link">
+            <a href="project.html" class="menu-text">Projects</a>
+            <button class="arrow" type="button">→</button>
+          </div>
+
+          <ul class="submenu">
+
+            <!-- ONGOING -->
+            <li class="has-submenu">
+              <div class="menu-link">
+                <a href="project.html" class="menu-text">Ongoing</a>
+                <button class="arrow" type="button">→</button>
+              </div>
+
+              <ul class="submenu">
+                <li><a href="ivana.html">Ivana</a></li>
+                <li><a href="highnine.html">High9</a></li>
+                <li><a href="parkside.html">Parkside</a></li>
+              </ul>
+            </li>
+
+            <!-- UPCOMING -->
+            <li class="has-submenu">
+              <div class="menu-link">
+                <a href="project.html" class="menu-text">Completed</a>
+                <button class="arrow" type="button">→</button>
+              </div>
+
+              <ul class="submenu">
+                <li><a href="ivana.html">Ivana Phase-1</a></li>
+                <!-- <li><a href="upcoming2.html">Project Two</a></li> -->
+              </ul>
+            </li>
+
+            <!-- COMPLETED -->
+            <!-- <li>
+              <a href="project.html">Completed</a>
+            </li> -->
+          </ul>
+        </li>
+
+        <li><a href="Aboutus.html">About us</a></li>
+        <li><a href="CSR.html">CSR</a></li>
+        <li><a href="PRE.html">Press Release & Events</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+
+
+
+      </ul>
+      <center>
+        <a href="index.html"> <img src="Assets/anvita-blue.svg" class="head-logo mt-2" alt="Logo" width="55%"></a>
+      </center>
+
+    </div>
+
+    <script>
+      function openMenu() {
+        document.getElementById("sideMenu").classList.add("active");
+        document.getElementById("overlay").classList.add("active");
+      }
+
+      function closeMenu() {
+        document.getElementById("sideMenu").classList.remove("active");
+        document.getElementById("overlay").classList.remove("active");
+      }
+    </script>
+
+    <!-- after side-menu -->
+    <script>
+      document.querySelectorAll(".has-submenu .arrow").forEach(arrow => {
+        arrow.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          this.closest(".has-submenu").classList.toggle("open");
+        });
+      });
+    </script>
+
+
+    <!-- ✅ Sticky Contact Button (Mobile Only) -->
+    <a href="Contact.html" class="sticky-contact-btn d-lg-none">Contact Us</a>
+    <!-- **** Navbar (fixed above slider) end -->
+
+
+    <!--*****Hero Section Slider -->
+    <section class="hero-section">
+      <div class="swiper hero-slider">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+
+            <video class="bg-video" autoplay playsinline preload="metadata" controlsList="nodownload noplaybackrate"
+              disablePictureInPicture>
+              <source src="Assets/balayya video.mp4" type="video/mp4">
+            </video>
+
+            <!-- Custom Audio Control Button -->
+            <button class="audio-control-btn" id="audioControlBtn" title="Unmute audio">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .audio-control-btn {
+        position: absolute;
+        bottom: 45px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        background-color: rgba(100, 100, 100, 0.9);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+
+      .audio-control-btn:hover {
+        background-color: rgba(100, 100, 100, 0.9);
+        transform: scale(1.1);
+      }
+
+      .audio-control-btn.muted {
+        background-color: rgba(100, 100, 100, 0.9);
+      }
+
+      .audio-control-btn.muted:hover {
+        background-color: rgba(100, 100, 100, 1);
+      }
+
+      @media (max-width: 768px) {
+        .audio-control-btn {
+          width: 42px;
+          height: 42px;
+          font-size: 16px;
+          bottom: 15px;
+          right: 15px;
+        }
+      }
+    </style>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const heroVideo = document.querySelector(".bg-video");
+        const audioControlBtn = document.getElementById("audioControlBtn");
+        const secondSection = document.querySelector(".pg-section");
+
+        if (!heroVideo || !audioControlBtn || !secondSection) return;
+
+        // Start with muted and autoplay
+        heroVideo.muted = true;
+        audioControlBtn.classList.add("muted");
+        audioControlBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        audioControlBtn.title = "Unmute audio";
+
+        // Custom audio control button functionality
+        audioControlBtn.addEventListener("click", () => {
+          heroVideo.muted = !heroVideo.muted;
+
+          // Update button appearance and icon
+          if (heroVideo.muted) {
+            audioControlBtn.classList.add("muted");
+            audioControlBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            audioControlBtn.title = "Unmute audio";
+          } else {
+            audioControlBtn.classList.remove("muted");
+            audioControlBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            audioControlBtn.title = "Mute audio";
+          }
+        });
+
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              /* 🔽 User scrolled DOWN */
+              heroVideo.pause();
+              heroVideo.muted = true;
+              audioControlBtn.classList.add("muted");
+              audioControlBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+              /* 🔼 User back on HERO */
+              const playPromise = heroVideo.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(() => { });
+              }
+            }
+          },
+          {
+            threshold: 0.25
+          }
+        );
+
+        observer.observe(secondSection);
+      });
+    </script>
+
+
+
+    <div class="social-icons">
+      <a href="https://wa.link/yui73s" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a href="https://www.instagram.com/anvitagroup/" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.facebook.com/theanvitagroup" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.youtube.com/@anvitagroup" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/company/anvita-group/" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+
+      <a href="https://x.com/theanvitagroup" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+    </div>
+
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.querySelector(".bg-video");
+
+        if (!video) return;
+
+        // Wait until metadata + layout are ready
+        video.addEventListener("loadedmetadata", () => {
+          const playPromise = video.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Autoplay blocked — still fine, controls remain
+              console.warn("Autoplay blocked by browser");
+            });
+          }
+        });
+      });
+    </script> -->
+
+
+    <!-- gallery section -->
+    <section class="pg-section">
+      <h2 class="gallery-title">Ongoing Projects</h2>
+
+      <div class="pg-stage mt-3">
+        <button class="pg-nav-btn pg-nav-prev"><i class="bi bi-chevron-left fs-4"></i></button>
+
+        <div class="pg-card">
+          <img src="Assets/gallery-parkside-1.jpeg">
+          <div class="pg-overlay">
+            <div class="pg-info">
+              <img src="Assets/avnitha-parkside-logo.png" alt="Parkside Logo" class="logo-iconn">
+              <p> An expansive 50-acre gated villa community in Medchal, featuring
+                nature-inspired homes and 75% open space.</p>
+              <span class="pg-location"><i class="bi bi-geo-alt-fill"></i> Medchal, Hyderabad</span>
+            </div>
+            <a href="parkside.html" class="pg-explore-btn">Explore More</a>
+          </div>
+
+
+        </div>
+
+        <div class="pg-card">
+          <img src="Assets/Aerial.png">
+          <div class="pg-overlay">
+            <div class="pg-info">
+              <img src="Assets/highnine.png" alt="Parkside Logo" class="logo-iconn">
+              <p>Sky Luxury Living in 30-floor towers with 80% open space and a massive
+                1,00,000 Sft clubhouse complex in Kollur.</p>
+              <span class="pg-location"><i class="bi bi-geo-alt-fill"></i> Kollur, Hyderabad</span>
+            </div>
+            <a href="highnine.html" class="pg-explore-btn">Explore More</a>
+          </div>
+        </div>
+
+        <div class="pg-card">
+          <img src="Assets/india-stackcard-1.png">
+          <div class="pg-overlay">
+            <div class="pg-info">
+              <img src="Assets/ivana-logo.png" alt="Parkside Logo" class="logo-iconn">
+              <p>Premium high-rise apartments and uber-luxury sky villas in Kollur.</p>
+              <span class="pg-location"><i class="bi bi-geo-alt-fill"></i> Kollur, Hyderabad</span>
+            </div>
+            <a href="ivana.html" class="pg-explore-btn">Explore More</a>
+          </div>
+        </div>
+        <!-- <div class="pg-card"><img src="Assets/gallery-high9-1.png"></div> -->
+        <!-- <div class="pg-card"><img src="Assets/gallery-iavana-2.jpg"></div> -->
+
+        <button class="pg-nav-btn pg-nav-next"><i class="bi bi-chevron-right fs-4"></i></button>
+      </div>
+
+      <div class="pg-buttons">
+        <a href="project.html" class="pg-btn">View all projects</a>
+        <a href="project.html" class="pg-btn">View all projects</a>
+        <a href="project.html" class="pg-btn">View all projects</a>
+      </div>
+
+    </section>
+
+
+
+
+
+
+    <div class="showcase-video-modal" id="videoModal">
+      <div class="showcase-video-modal__content">
+        <button class="showcase-video-close">&times;</button>
+        <iframe id="videoModalIframe"></iframe>
+      </div>
+    </div>
+
+    <!-- ****Hero Section Slider end -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.0/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <script>
+
+      const swiper = new Swiper('.hero-slider', {
+        loop: true,
+        autoplay: {
+          delay: 8000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        effect: 'fade',
+        fadeEffect: { crossFade: false },
+
+        on: {
+          init() {
+            animateSlide(this.slides[this.activeIndex]);
+          },
+          slideChangeTransitionStart() {
+            animateSlide(this.slides[this.activeIndex]);
+          }
+        }
+      });
+
+      function animateSlide(activeSlide) {
+        const content = activeSlide.querySelector('.hero-content');
+        if (!content) return;
+
+        // ✨ Remove blinking by NOT resetting all contents
+        gsap.killTweensOf(content);
+
+        gsap.fromTo(content,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.8, ease: "power3.out" }
+        );
+      }
+
+
+      function animateSlide(activeSlide) {
+        const allSlides = document.querySelectorAll('.hero-slider .swiper-slide');
+
+        // Reset all hero-content before animation
+        allSlides.forEach(slide => {
+          const content = slide.querySelector('.hero-content');
+          if (!content) return;
+          gsap.set(content, { opacity: 0, y: 0 });
+        });
+
+        const content = activeSlide.querySelector('.hero-content');
+        if (!content) return;
+
+        // Figure out which slide based on data-background
+        const bg = activeSlide.getAttribute('style') || "";
+
+        if (bg.includes('home-banner-1')) {
+          // Slide 1: bottom → top
+          gsap.fromTo(content,
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.8, ease: "power3.out" }
+          );
+        }
+        else if (bg.includes('home-banner-2')) {
+
+          gsap.fromTo(content,
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.8, ease: "power3.out" }
+          );
+        }
+        else {
+
+          gsap.fromTo(content,
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.8, ease: "power3.out" }
+          );
+        }
+      }
+    </script>
+
+    <!-- autoplay cards -->
+    <!-- <script>
+      let pgAutoTimer = null;
+      const AUTO_DELAY = 2000; // change speed here (ms)
+
+      function startPgAutoScroll() {
+        stopPgAutoScroll(); // safety
+
+        pgAutoTimer = setInterval(() => {
+          pgActiveIndex = (pgActiveIndex + 1) % total;
+          pgPositionCards();
+        }, AUTO_DELAY);
+      }
+
+      function stopPgAutoScroll() {
+        if (pgAutoTimer) {
+          clearInterval(pgAutoTimer);
+          pgAutoTimer = null;
+        }
+      }
+
+      /* ▶️ Start autoplay */
+      startPgAutoScroll();
+
+      /* ⏸️ Pause on hover (desktop) */
+      document.querySelector('.pg-stage')?.addEventListener('mouseenter', stopPgAutoScroll);
+      document.querySelector('.pg-stage')?.addEventListener('mouseleave', startPgAutoScroll);
+
+      /* ⏸️ Pause on touch (mobile) */
+      document.querySelector('.pg-stage')?.addEventListener('touchstart', stopPgAutoScroll, { passive: true });
+      document.querySelector('.pg-stage')?.addEventListener('touchend', startPgAutoScroll);
+
+      /* ⏸️ Pause when tab inactive */
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopPgAutoScroll();
+        else startPgAutoScroll();
+      });
+    </script> -->
+
+    <!--  <script>
+    const swiper = new Swiper('.hero-slider', {
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+       pagination: {
+        el: ".swiper-pagination",
+      },
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      on: {
+        init() {
+          animateSlide(this.slides[this.activeIndex]);
+        },
+        slideChangeTransitionStart() {
+          animateSlide(this.slides[this.activeIndex]);
+        }
+      }
+    });
+
+    function animateSlide(activeSlide) {
+      const allSlides = document.querySelectorAll('.hero-slider .swiper-slide');
+
+      // Reset all hero-content before animation
+      allSlides.forEach(slide => {
+        const content = slide.querySelector('.hero-content');
+        if (!content) return;
+        gsap.set(content, { opacity: 0, y: 0 });
+      });
+
+      const content = activeSlide.querySelector('.hero-content');
+      if (!content) return;
+
+      // Figure out which slide based on data-background
+      const bg = activeSlide.getAttribute('style') || "";
+
+      if (bg.includes('home-banner-1')) {
+        // Slide 1: bottom → top
+        gsap.fromTo(content,
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" }
+        );
+      }
+      else if (bg.includes('home-banner-2')) {
+        // Slide 2: top → bottom
+        gsap.fromTo(content,
+          { y: -100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" }
+        );
+      }
+      else {
+        // Slide 3: no movement, fade in softly
+        gsap.fromTo(content,
+          { opacity: 0 },
+          { opacity: 1, duration: 1.2, ease: "power2.out" }
+        );
+      }
+    }
+  </script> -->
+
+    <!-- ****scroll in image  start  -->
+
+
+
+
+
+
+
+    <!-- ****OUR VALUES section start  -->
+
+    <!-- <div class="dummy-height"></div>
+  <div class="dummy-color">
+    <section class="craft-community pt-5">
+      <div class="container-fluid ">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="craft-community-content">
+              <h2>Envisioning Life,<br>
+                Crafting Communities</h2>
+              <p>At Anvita Group, we craft more than buildings, creating timeless communities that inspire belonging and
+                elevate living. Guided by evolving lifestyles, we blend innovation, elegance and sustainability with
+                uncompromising quality.
+                <br> <br>Each project is a sanctuary of luxury and integrity, shaping skylines into enduring legacies of
+                sophistication.
+              </p>
+
+            </div>
+            <a href="#" class="craft-community-btn">KNOW MORE</a>
+          </div>
+          <div class="col-md-6 craft-community-image">
+
+            <img src="Assets/craft_image.png" class="img-fluid" id="craft-image" />
+
+          </div>
+        </div>
+      </div>
+    </section>  -->
+
+    <!-- <section class="our-values">
+
+
+      <div class="gallery-title">
+        <p class="kicker-middle">OUR VALUES</p>
+        <h2 class="gallery">The Foundations We Build Upon</h2>
+
+      </div>
+
+
+      <div class="container-fluid ">
+        <div class="row ">
+          <div class="col-md-3 ">
+            <div class="value-card" data-aos="zoom-in" data-aos-duration="800">
+              <img src="Assets/hero-icon-2.svg" />
+              <h4>Community & <br>
+                Belonging</h4>
+              <hr class="line">
+              <p>We create environments where residents don’t just live, but truly belong, nurtured through shared
+                spaces, curated amenities, and a spirit of togetherness.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="value-card" data-aos="zoom-in" data-aos-duration="800">
+              <img src="Assets/hero-icon-3.svg" />
+              <h4>Excellence in<br> Craftsmanship</h4>
+              <hr class="line">
+              <p>Our relentless pursuit of quality and attention to detail is evident in everything we do, from enduring
+                engineering to the artful design of living spaces.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="value-card" data-aos="zoom-in" data-aos-duration="800">
+              <img src="Assets/hero-icon-4.svg" />
+              <h4>Progressive<br> Innovation</h4>
+              <hr class="line">
+              <p>We set new benchmarks with visionary design, smart technologies, and sustainable practices, ensuring
+                every development is both future-ready and timeless.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="value-card" data-aos="zoom-in" data-aos-duration="800">
+              <img src="Assets/hero-icon-5.svg" />
+              <h4>Luxury with <br>Integrity</h4>
+              <hr class="line">
+              <p>For us, true luxury is honest and responsible, enriching lives with elegance while respecting the
+                environment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+ -->
+
+
+
+
+    <!-- <section class="mt-5">
+      <video class="custom-video" autoplay muted loop playsinline controls poster="Assets/section-2-bg.jpeg">
+
+        <source src="Assets/section-2.mp4" type="video/mp4">
+      </video>
+    </section> -->
+
+
+    <!-- GSAP animation -->
+
+
+    <section class="Your-Trusted mt-5">
+      <div class="container-fluid">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7 col-md-12">
+            <div class="craft-community-content">
+              <h2>About Anvita Group
+                <br>
+              </h2>
+              <p>With the proven track record, we started our journey in 2005. Ever since then, we have grown to become
+                a well-respected and trusted name. We pride ourselves on our commitment to excellence and strive to
+                achieve highest quality on every project.
+
+                Our team of dedicated professionals with wealth of experience and knowledge, are trained to pay
+                attention to the smallest details, ensuring that every project we undertake is completed with precision
+                and accuracy.
+
+                We use latest technology and best practices to deliver exceptional results that continue to exceed our
+                customer’s expectations.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12  ">
+            <div class="left-cont">
+              <p class="kicker">About Anvita Group</p>
+              <h3 class="mb-4 gallery-titlee">
+                Your Trusted Partner<br> in Precision & Quality
+              </h3>
+              <div class="row">
+
+
+                <div class="col-6 col-sm-6 col-md-3 col-lg-6 stat-item with-divider">
+                  <div class="stat-box">
+                    <h2 class="counter" data-target="6">0</h2>
+                    <p>Total no. of Projects</p>
+                  </div>
+                </div>
+
+
+                <div class="col-6 col-sm-6 col-md-3 col-lg-6 stat-item" id="stat-item-id">
+                  <div class="stat-box">
+                    <h2 class="counter" data-target="1000000">0</h2>
+                    <p>Total sq. Ft</p>
+                  </div>
+                </div>
+
+
+                <div class="col-6 col-sm-6 col-md-3 col-lg-6 stat-item with-divider">
+                  <div class="stat-box">
+                    <h2 class="counter" data-target="4500">0</h2>
+                    <p>Total no. of Units</p>
+                  </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-3 col-lg-6 stat-item" id="stat-item-id">
+                  <div class="stat-box">
+                    <h2 class="counter" data-target="11">0</h2>
+                    <p>Years in <br>Operation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+
+    <!-- Counter Animation Script -->
+    <script>
+      function animateCounter(counter) {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; // milliseconds
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            // Check if this is the 1 Million + counter
+            if (target === 1000000) {
+              counter.innerText = '1 Million +';
+            } else {
+              counter.innerText = target + '+';
+            }
+            clearInterval(timer);
+          } else {
+            counter.innerText = target % 1 !== 0 ? current.toFixed(1) : Math.ceil(current);
+          }
+        }, stepTime);
+      }
+
+      const counters = document.querySelectorAll('.counter');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(counter => observer.observe(counter));
+    </script>
+
+    <!-- Counter Animation Script end-->
+
+
+
+
+    <script>
+      const AUTOPLAY_TIME = 9000; // 4 seconds
+
+      $('.loop').owlCarousel({
+        autoplay: true,
+        autoplayTimeout: AUTOPLAY_TIME,
+        smartSpeed: 900,
+        center: true,
+        items: 1.4,
+        loop: true,
+        margin: 15,
+        dots: true
+      });
+
+
+
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('videoModalIframe');
+
+      document.addEventListener('click', e => {
+        if (e.target.classList.contains('showcase-video-play-btn')) {
+          iframe.src = e.target.dataset.video + '?autoplay=1';
+          modal.classList.add('active');
+        }
+        if (e.target.classList.contains('showcase-video-close') || e.target === modal) {
+          modal.classList.remove('active');
+          iframe.src = '';
+        }
+      });
+    </script>
+
+    <script>
+      const carousel = $('.loop');
+      const autoplayTime = 4000;
+
+      function resetProgress() {
+        document.querySelectorAll('.owl-dot').forEach(dot => {
+          dot.style.setProperty('--progress', '0%');
+          dot.querySelector('::after');
+        });
+      }
+
+      function animateDot() {
+        const activeDot = document.querySelector('.owl-dot.active');
+        if (!activeDot) return;
+
+        activeDot.style.setProperty('--progress', '0%');
+        activeDot.querySelector;
+
+        activeDot.style.setProperty('--progress', '100%');
+        activeDot.style.setProperty(
+          'transition',
+          `width ${autoplayTime}ms linear`
+        );
+      }
+
+      carousel.on('changed.owl.carousel', function () {
+        document
+          .querySelectorAll('.owl-dot::after')
+          ?.forEach(el => el.style.width = '0%');
+
+        document.querySelectorAll('.owl-dot').forEach(dot => {
+          dot.style.setProperty('--progress', '0%');
+          dot.style.transition = 'none';
+        });
+
+        setTimeout(() => {
+          const active = document.querySelector('.owl-dot.active');
+          if (active) {
+            active.style.transition = `width ${autoplayTime}ms linear`;
+          }
+        }, 50);
+      });
+
+      carousel.on('initialized.owl.carousel', function () {
+        setTimeout(() => {
+          const active = document.querySelector('.owl-dot.active');
+          if (active) {
+            active.style.transition = `width ${autoplayTime}ms linear`;
+          }
+        }, 50);
+      });
+    </script>
+
+
+    <!-- TESTIMONIALS -->
+    <h2 class="Testimonials-h2">Testimonials</h2>
+
+    <section class="reels-section">
+
+      <div class="reels-nav">
+        <button class="reels-btn left">&#10094;</button>
+        <button class="reels-btn right">&#10095;</button>
+      </div>
+
+      <div class="reels-wrapper">
+
+        <div class="reel">
+          <h4 class="reel-title">Collaborators</h4>
+
+          <video muted playsinline preload="none" data-src="Assets/reels/Collaborators Reel v7.mp4"
+            poster="Assets/reels/thumbnails/Collaborators-thumb.png">
+          </video>
+        </div>
+
+        <div class="reel">
+          <h4 class="reel-title">Design of Anvita</h4>
+
+          <video muted playsinline preload="none" data-src="Assets/reels/Design of Anvita Reel v7.mp4"
+            poster="Assets/reels/thumbnails/Design-of-Anvita-thumb.png">
+          </video>
+        </div>
+
+        <div class="reel">
+          <h4 class="reel-title">Future of Kollur</h4>
+
+          <video muted playsinline preload="none" data-src="Assets/reels/Future of Kollur Reel v7.mp4"
+            poster="Assets/reels/thumbnails/Future-of-Kollur-thumb.png">
+          </video>
+        </div>
+
+        <div class="reel">
+          <h4 class="reel-title">One Word About Anvita</h4>
+
+          <video muted playsinline preload="none" data-src="Assets/reels/One word about Anvita Reel v7.mp4"
+            poster="Assets/reels/thumbnails/One-Word-About-Anvita-thumb.png">
+          </video>
+        </div>
+
+        <div class="reel">
+          <h4 class="reel-title">Project Highlights</h4>
+
+          <video muted playsinline preload="none" data-src="Assets/reels/Project Highlights Reel v7.mp4"
+            poster="Assets/reels/thumbnails/Project-Highlights-thumb.png">
+          </video>
+        </div>
+
+        <div class="reel">
+          <h4 class="reel-title">Sky Villa</h4>
+
+          <video muted playsinline preload="none" data-src="Assets/reels/Sky Villa Reel v7.mp4"
+            poster="Assets/reels/thumbnails/Sky-Villa-thumb.png">
+          </video>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/InertiaPlugin.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(Draggable, InertiaPlugin);
+
+      const wrapper = document.querySelector(".reels-wrapper");
+      const reels = gsap.utils.toArray(".reel");
+      const prevBtn = document.querySelector(".reels-btn.left");
+      const nextBtn = document.querySelector(".reels-btn.right");
+
+      const GAP = 32;
+      let activeIndex = 2;
+
+      function reelWidth() {
+        return reels[0].offsetWidth + GAP;
+      }
+
+      function centerX(index) {
+        const isMobile = window.innerWidth < 768; // Bootstrap md breakpoint
+
+        if (isMobile) {
+          // Mobile: simpler centering, no 1.1 / 1.2 tweaks
+          return -(index * reelWidth() - (window.innerWidth / 2 - reelWidth() / 2.2));
+        }
+
+        // Desktop: your tuned value stays untouched
+        return -(index * reelWidth() - (window.innerWidth / 2 - reelWidth() / 1.2));
+      }
+
+
+      const draggable = Draggable.create(wrapper, {
+        type: "x",
+        inertia: true,
+        onDrag: updateActive,
+        onThrowUpdate: updateActive,
+      })[0];
+
+      function updateActive() {
+        let closest = { index: 0, dist: Infinity };
+        const center = window.innerWidth / 2;
+
+        reels.forEach((reel, i) => {
+          const box = reel.getBoundingClientRect();
+          const dist = Math.abs(box.left + box.width / 2 - center);
+          if (dist < closest.dist) closest = { index: i, dist };
+        });
+
+        setActive(closest.index);
+      }
+
+      function setActive(index) {
+        activeIndex = index;
+
+        reels.forEach((reel, i) => {
+          reel.classList.toggle("is-active", i === index);
+          reel.classList.remove("is-playing");
+
+          const v = reel.querySelector("video");
+          v.pause();
+          v.controls = false;
+          v.muted = true;
+        });
+
+        const activeReel = reels[index];
+        const activeVideo = activeReel.querySelector("video");
+
+        // Lazy load: Load video source only when it becomes active
+        if (!activeVideo.querySelector("source")) {
+          const source = document.createElement("source");
+          source.src = activeVideo.getAttribute("data-src");
+          source.type = "video/mp4";
+          activeVideo.appendChild(source);
+        }
+
+        activeVideo.play();
+      }
+
+      function addHoverControls() {
+        reels.forEach((reel) => {
+          const video = reel.querySelector("video");
+
+          reel.addEventListener("mouseenter", () => {
+            if (reel.classList.contains("is-active")) {
+              video.controls = true;
+            }
+          });
+
+          reel.addEventListener("mouseleave", () => {
+            video.controls = false;
+          });
+        });
+      }
+
+      reels.forEach((reel, i) => {
+        reel.addEventListener("click", () => slideTo(i, true));
+      });
+
+      function slideTo(index, play = false) {
+        // FIX: clamp index
+        index = Math.max(0, Math.min(index, reels.length - 1));
+
+        gsap.to(wrapper, {
+          x: centerX(index),
+          duration: 0.2,
+          ease: "power3.out",
+          onComplete: () => {
+            setActive(index);
+            if (play) openVideo(index);
+          }
+        });
+      }
+
+      function openVideo(index) {
+        const reel = reels[index];
+        const video = reel.querySelector("video");
+
+        reel.classList.add("is-playing");
+        video.controls = true;
+        // video.muted = false;
+        video.play();
+      }
+
+      prevBtn.onclick = () => slideTo(activeIndex - 1);
+      nextBtn.onclick = () => slideTo(activeIndex + 1);
+
+      gsap.set(wrapper, { x: centerX(activeIndex) });
+      setActive(activeIndex);
+      addHoverControls();
+    </script>
+
+
+    <!-- testimonils END -->
+
+
+
+
+    <!-- Slider Section start -->
+    <h2 class="Testimonials-h2">Awards & Accolades</h2>
+    <section class="award-section">
+      <div class="container-fluid p-0">
+
+        <div id="awardCarousel" class="carousel slide">
+
+          <!-- INDICATORS -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#awardCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#awardCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#awardCarousel" data-bs-slide-to="2"></button>
+          </div>
+
+          <!-- CAROUSEL ITEMS -->
+          <div class="carousel-inner">
+
+            <!-- SLIDE 1 -->
+            <div class="carousel-item active">
+              <div class="row align-items-center g-0 award-box">
+                <div class="col-md-7">
+                  <img src="Assets/Awards.png" class="img-fluid object-fit-cover awards-image" alt="Award Image">
+                </div>
+                <div class="col-md-5 d-flex justify-content-center align-items-center awards-content">
+                  <div class="award-content text-center">
+                    <img src="Assets/home-icon-3.png" class="award-icon mb-3" alt="Award Icon">
+                    <h3 class="mb-3">Excellence Award 2024</h3>
+                    <p class="mb-0">
+                      <span class="award-text">Outlook Business Spotlight Reality <br>Award</span>
+                      Master of Development <br>
+                      Excellence Award 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-0 award-box">
+                <div class="col-md-7">
+                  <img src="Assets/Iconic-projects-oty.png" class="img-fluid object-fit-cover awards-image" alt="Award Image">
+                </div>
+                <div class="col-md-5 d-flex justify-content-center align-items-center awards-content">
+                  <div class="award-content text-center">
+                    <img src="Assets/home-icon-3.png" class="award-icon mb-3" alt="Award Icon">
+                    <h3 class="mb-3">Innovative Developer Award</h3>
+                    <p class="mb-0">
+                      <span class="award-text">Innovative Developer of The Year 2025<br>by</span>
+                      The Times of India <br>
+                      Times Busines Awards 11th Edition 2025, Hyderabad
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-0 award-box">
+                <div class="col-md-7">
+                  <img src="Assets/iconic-award-oty.png" class="img-fluid object-fit-cover awards-image" alt="Award Image">
+                </div>
+                <div class="col-md-5 d-flex justify-content-center align-items-center awards-content">
+                  <div class="award-content text-center">
+                    <img src="Assets/home-icon-3.png" class="award-icon mb-3" alt="Award Icon">
+                    <h3 class="mb-3"> Iconic Projects of the Year 2025</h3>
+                    <p class="mb-0">
+                      <span class="award-text">Iconic Project of The Year Award<br>by</span>
+                      The Times of India <br>
+                      Times Busines Awards 11th Edition 2025, Hyderabad
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CONTROLS -->
+          <button class="carousel-control-prev" type="button" id="contol-prev" data-bs-target="#awardCarousel"
+            data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" id="contol-prev" data-bs-target="#awardCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Slide 2 
+<section class="h-scroll-section">
+
+
+  <h2 class="gallery-title">Gallery</h2>
+
+  <div class="h-scroll-viewport">
+    <div class="h-scroll-track">
+
+      <div class="h-scroll-card is-active">
+        <img src="Assets/gallery-Basket-ball.png">
+        <div class="h-scroll-title">Basket Ball Court</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Cafe-with-Pool.png">
+        <div class="h-scroll-title">Cafe with Pool</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Gym.png">
+        <div class="h-scroll-title">Gym</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Indoor_Games.png">
+        <div class="h-scroll-title">Indoor Games</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Kids_Play_Area.png">
+        <div class="h-scroll-title">Kids Play Area</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Library.png">
+        <div class="h-scroll-title">Library</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Multipurpose_Hall.png">
+        <div class="h-scroll-title">Multipurpose Hall</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Pet park.png">
+        <div class="h-scroll-title">Pet Park</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Pool-&-Club.png">
+        <div class="h-scroll-title">Pool & Club</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Terrace-Cafeteria.png">
+        <div class="h-scroll-title">Terrace Cafeteria</div>
+      </div>
+
+      <div class="h-scroll-card">
+        <img src="Assets/gallery-Salon.png">
+        <div class="h-scroll-title">Salon</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+-->
+
+    <!-- footer and above section-->
+
+
+    <div class="footer-new ">
+      <!-- Hero Section -->
+      <section class="heroo-section">
+        <h1>Begin Your Journey With Anvita</h1>
+        <p>Discover how our communities can elevate your lifestyle.<br> Connect with us today.</p>
+        <button class="iv-explore-btn">Get a call back</button>
+      </section>
+
+      <!-- Footer Section -->
+      <section class="footer-section">
+        <div class="footer-left">
+          <img src="Assets/anvita-blue.svg" alt="Anvita Logo" width="50" />
+          <p>Since 2005, we have been dedicated to crafting projects with unmatched quality and attention to detail,
+            earning the trust of our clients.</p>
+          <!-- <a href="#"><i class="bi bi-facebook fs-3"></i></a> <a href="#"><i class="bi bi-instagram fs-3"></i></a> -->
+        </div>
+
+        <div class="footer-center">
+          <ul>
+            <li><a href="Projectinnerpage.html">Projects</a></li>
+            <li><a href="Aboutus.html">About Us</a></li>
+            <li><a href="CSR.html">CSR</a></li>
+            <!-- <li><a href="PRE.html">Press Release and Events</a></li> -->
+          </ul>
+
+          <ul>
+            <li><a href="PRE.html">Press Release and Events</a></li>
+            <!-- <li><a href="#">Terms & Conditions</a></li> -->
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-right">
+          <p>+91-9912312399</p>
+          <a href="mailto:info@anvitagroup.com">info@anvitagroup.com</a>
+        </div>
+      </section>
+
+      <p class="copyright">
+        © 2025 <strong>Anvita Group.</strong> All Rights Reserved.
+      </p>
+    </div>
+    <!-- footer and above section end-->
+
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animate each testimonial one by one
+      gsap.utils.toArray(".testimonial").forEach((card) => {
+        gsap.fromTo(card,
+          { x: 200, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              end: "top 40%",
+              scrub: true,   // ✅ syncs with scroll
+            }
+          }
+        );
+      });
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+      AOS.init();
+    </script>
+    <script>
+
+      // Hero Section Slider
+      var swiper = new Swiper(".hero-slider", {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        effect: "fade",
+        speed: 1000
+      });
+
+      // AOS init
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+      var swiper = new Swiper(".hero-slider", {
+        loop: true,
+        autoplay: {
+          delay: 10000000,
+          disableOnInteraction: false,
+        },
+        effect: "fade",
+        speed: 2000,
+        fadeEffect: {
+          crossFade: true // 🔥 this ensures only one text is visible
+        }
+      });
+
+      //Hero Section Slider end
+
+
+
+
+    </script>
+
+    <script>
+      $('.dropdown').mouseover(function () {
+        if ($('.navbar-toggler').is(':hidden')) {
+          $(this).addClass('show').attr('aria-expanded', 'true');
+          $(this).find('.dropdown-menu').addClass('show');
+        }
+      }).mouseout(function () {
+        if ($('.navbar-toggler').is(':hidden')) {
+          $(this).removeClass('show').attr('aria-expanded', 'false');
+          $(this).find('.dropdown-menu').removeClass('show');
+        }
+      });
+
+      // Go to the parent link on click
+      $('.dropdown > a').click(function () {
+        location.href = this.href;
+      });
+    </script>
+
+
+    <script>
+
+      // AOS init
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+      var swiper = new Swiper(".hero-slider", {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        effect: "fade",
+        speed: 2000,
+        fadeEffect: {
+          crossFade: true // 🔥 this ensures only one text is visible
+        }
+      });
+    </script>
+
+
+
+    <!-- test -->
+
+    <script>
+      document.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".custom-navbar") || document.querySelector('.header');
+        if (!navbar) return; // nothing to do if no navbar on page
+
+        if (window.scrollY > 50) {
+          navbar.classList.add("navbar-scrolled");
+        } else {
+          navbar.classList.remove("navbar-scrolled");
+        }
+      });
+    </script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const track = document.querySelector(".h-scroll-track");
+      const cards = gsap.utils.toArray(".h-scroll-card");
+
+      const gap = 40;
+
+      function setupScroll() {
+        const cardWidth = cards[0].getBoundingClientRect().width + gap;
+        const totalWidth = cardWidth * cards.length;
+        const viewportWidth = document.documentElement.clientWidth;
+
+        const scrollAmount = Math.max(0, totalWidth - viewportWidth);
+
+        gsap.killTweensOf(track);
+        ScrollTrigger.getAll().forEach(st => st.kill());
+
+        gsap.to(track, {
+          x: -scrollAmount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".h-scroll-section",
+            start: "top top",
+            end: () => "+=" + scrollAmount,
+            scrub: 1,
+            pin: true,
+
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onUpdate: self => {
+              const index = Math.round(self.progress * (cards.length - 1));
+              cards.forEach(c => c.classList.remove("is-active"));
+              cards[index]?.classList.add("is-active");
+            }
+          }
+        });
+      }
+
+      setupScroll();
+      window.addEventListener("resize", setupScroll);
+
+      ScrollTrigger.matchMedia({
+
+        // 🖥 DESKTOP (unchanged)
+        "(min-width: 769px)": () => {
+          setupScroll();
+        },
+
+        // 📱 MOBILE (ONLY change)
+        "(max-width: 768px)": () => {
+          ScrollTrigger.getAll().forEach(st => st.kill());
+          gsap.set(track, { clearProps: "transform" });
+        }
+
+      });
+    </script>
+
+
+    <script>
+      const pgCards = document.querySelectorAll('.pg-card');
+      const pgButtons = document.querySelectorAll('.pg-btn');
+      const total = pgCards.length;
+      let pgActiveIndex = 0;
+
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function getOffset(i) {
+        let diff = i - pgActiveIndex;
+        if (diff > total / 2) diff -= total;
+        if (diff < -total / 2) diff += total;
+        return diff;
+      }
+
+      function updateButtons() {
+        pgButtons.forEach((btn, i) => {
+          if (i === pgActiveIndex) {
+            gsap.to(btn, {
+              opacity: 1,
+              y: 0,
+              pointerEvents: 'auto',
+              duration: 0.35,
+              ease: 'power3.out'
+            });
+          } else {
+            gsap.to(btn, {
+              opacity: 0,
+              y: 12,
+              pointerEvents: 'none',
+              duration: 0.25,
+              ease: 'power2.out'
+            });
+          }
+        });
+      }
+
+      function pgPositionCards() {
+        const mobile = isMobile();
+
+        pgCards.forEach((card, i) => {
+          const offset = getOffset(i);
+
+          /* MOBILE: ONLY ONE CARD */
+          if (mobile) {
+            if (offset === 0) {
+              gsap.to(card, {
+                x: 0,
+                scale: 1,
+                rotateY: 0,
+                opacity: 1,
+                zIndex: 10,
+                duration: 0.6,
+                ease: "power3.out"
+              });
+            } else {
+              gsap.to(card, {
+                opacity: 0,
+                scale: 0.9,
+                zIndex: 0,
+                duration: 0.4
+              });
+            }
+            return;
+          }
+
+          /* DESKTOP: 3 CARD CINEMATIC */
+          if (offset === 0) {
+            gsap.to(card, {
+              x: 0,
+              scale: 1.12,
+              rotateY: 0,
+              z: 200,
+              opacity: 1,
+              zIndex: 10,
+              duration: 0.9,
+              ease: "power3.out"
+            });
+          }
+          else if (offset === -1) {
+            gsap.to(card, {
+              x: -420,
+              scale: 0.92,
+              rotateY: 22,
+              opacity: 0.75,
+              zIndex: 5,
+              duration: 0.9,
+              ease: "power3.out"
+            });
+          }
+          else if (offset === 1) {
+            gsap.to(card, {
+              x: 420,
+              scale: 0.92,
+              rotateY: -22,
+              opacity: 0.75,
+              zIndex: 5,
+              duration: 0.9,
+              ease: "power3.out"
+            });
+          }
+          else {
+            gsap.to(card, {
+              opacity: 0,
+              scale: 0.8,
+              zIndex: 0,
+              duration: 0.6
+            });
+          }
+        });
+
+        /* 🔥 sync buttons with cards */
+        updateButtons();
+      }
+
+      pgPositionCards();
+
+      /* NAV */
+      document.querySelector('.pg-nav-next').onclick = () => {
+        pgActiveIndex = (pgActiveIndex + 1) % total;
+        pgPositionCards();
+      };
+
+      document.querySelector('.pg-nav-prev').onclick = () => {
+        pgActiveIndex = (pgActiveIndex - 1 + total) % total;
+        pgPositionCards();
+      };
+
+      /* RESIZE */
+      window.addEventListener('resize', pgPositionCards);
+    </script>
+
+
+    <script>
+      const carousel = document.getElementById('testimonialCarousel');
+
+      carousel.addEventListener('slid.bs.carousel', () => {
+        document.querySelectorAll('.carousel-item').forEach(item => {
+          const video = item.querySelector('video');
+          if (item.classList.contains('active')) {
+            video.style.visibility = 'visible';
+          } else {
+            video.pause();
+            video.currentTime = 0;
+            video.style.visibility = 'hidden';
+          }
+        });
+      });
+    </script>
+    <script>
+      const header = document.querySelector(".header");
+      const logo = document.querySelector(".logoo");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+          logo.src = "Assets/anvita-blue.svg";
+        } else {
+          header.classList.remove("scrolled");
+          logo.src = "Assets/logo-light.png";
+        }
+      });
+
+
+    </script>
+
+
+
+    <script>
+      const heroSwiper = new Swiper(".hero-slider", {
+        loop: true,
+        effect: "fade",
+        speed: 1200,
+        autoplay: {
+          delay: 8000,
+          disableOnInteraction: false,
+        },
+        fadeEffect: {
+          crossFade: true
+        },
+        on: {
+          init(swiper) {
+            playActiveVideo(swiper);
+          },
+          slideChangeTransitionEnd(swiper) {
+            playActiveVideo(swiper);
+          }
+        }
+      });
+
+      function playActiveVideo(swiper) {
+        swiper.slides.forEach(slide => {
+          const video = slide.querySelector("video");
+          if (!video) return;
+
+          video.pause();
+          video.currentTime = 0;
+        });
+
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        const activeVideo = activeSlide.querySelector("video");
+
+        if (!activeVideo) return;
+
+        const playPromise = activeVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            console.warn("Autoplay blocked (browser policy)");
+          });
+        }
+      }
+    </script>
+
+</body>
+
+</html>

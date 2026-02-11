@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Release and Events</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link href="https://fonts.cdnfonts.com/css/chronicle-display" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.green.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css">
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+    <!-- Custom CSS -->
+
+    <link rel="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Chronicle Display" !important;
+            font-weight: 300 !important;
+
+        }
+
+
+        p {
+            font-size: 15px !important;
+            line-height: 1.6 !important;
+            color: #555;
+            font-weight: 400 !important;
+        }
+
+        .menu-btn {
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            color: black;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Maven Pro", sans-serif !important;
+        }
+
+        span.span1 {
+            background: black;
+        }
+
+        span.span2 {
+            background: black;
+        }
+
+        span.span3 {
+            background: black;
+        }
+
+        .header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: #fff;
+            /* solid background */
+            height: 95px !important;
+        }
+
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* navbar test */
+
+        .menu-top,
+        .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0px;
+        }
+
+        .menu-text {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .arrow {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* rotate arrow */
+        .has-submenu.open>.menu-link .arrow {
+            transform: rotate(90deg);
+        }
+
+        /* submenu animation */
+        /* reset submenu */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            padding-left: 0;
+            transition: max-height 0.35s ease, opacity 0.25s ease;
+        }
+
+        .has-submenu.open>.submenu {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* indent only child menu items */
+        .submenu>li>a,
+        .submenu>li>.menu-link {
+            padding-left: 32px;
+        }
+
+
+        /* mobile spacing */
+        @media (max-width: 768px) {
+            .menu-link {
+                /* padding: 14px 18px; */
+            }
+        }
+
+        /* overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 9998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* side menu */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #fff;
+            z-index: 9999;
+            padding: 30px 20px;
+            transition: right 0.35s ease;
+            overflow-y: auto;
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item {
+                padding: 0 12px;
+            }
+
+            .carousel-item h6 {
+                margin-top: 12px;
+                /* gap between video and title */
+            }
+
+            .video-card {
+                margin-bottom: 16px;
+                /* vertical breathing space */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-card {
+                display: block;
+                background: transparent;
+                line-height: 0;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .video-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+            }
+
+            .carousel-item {
+                padding: 0 12px;
+            }
+
+            .carousel-item h6 {
+                margin-top: 10px;
+            }
+        }
+
+        /* social icons */
+        .social-icons {
+            position: fixed;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99999;
+        }
+
+        .logo {
+            background: none !important;
+            backdrop-filter: none !important;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            background-color: #ab904c !important;
+            ;
+            color: #fff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* ✅ MOBILE BOTTOM STICKY */
+        @media (max-width: 768px) {
+            .social-icons {
+                top: auto;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                transform: none;
+                flex-direction: row;
+                justify-content: space-around;
+                background-color: white !important;
+                ;
+                padding: 12px 10px;
+                border-top: 1px solid #ddd;
+            }
+
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                background: #000;
+                font-size: 18px;
+            }
+        }
+
+        .video-card {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px !important;
+            height: 50px !important;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            background: none !important;
+        }
+
+        .video-card:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        /* .play-btn {
+                width: 24px !important;
+                height: 24px !important;
+                top: 50% !important;
+                right: 50% !important;
+                display: f;
+            } */
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+
+        <div class="header">
+            <div class="menu-btn" onclick="openMenu()">
+                MENU
+                <div class="hamburger">
+                    <span class="span1"></span>
+                    <span class="span2"></span>
+                    <span class="span3"></span>
+                </div>
+            </div>
+
+            <div class="logo">
+                <a href="index.html"> <img src="Assets/anvita-blue.svg" class="logoo" alt="Logo"></a>
+            </div>
+
+            <div class="spacer"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+        <!-- Slide Menu -->
+        <div class="side-menu" id="sideMenu">
+
+            <div class="menu-close" onclick="closeMenu()">✕</div>
+            <ul class="menu-top">
+
+                <li><a href="index.html">Home</a></li>
+
+                <!-- PROJECTS -->
+                <li class="has-submenu">
+                    <div class="menu-link">
+                        <a href="project.html" class="menu-text">Projects</a>
+                        <button class="arrow" type="button">→</button>
+                    </div>
+
+                    <ul class="submenu">
+
+                        <!-- ONGOING -->
+                       <li class="has-submenu">
+                            <div class="menu-link">
+                                <a href="project.html" class="menu-text">Ongoing</a>
+                                <button class="arrow" type="button">→</button>
+                            </div>
+
+                            <ul class="submenu">
+                                <li><a href="ivana.html">Ivana</a></li>
+                                <li><a href="highnine.html">High9</a></li>
+                                <li><a href="parkside.html">Parkside</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- UPCOMING -->
+                        <li class="has-submenu">
+                            <div class="menu-link">
+                                <a href="project.html" class="menu-text">Completed</a>
+                                <button class="arrow" type="button">→</button>
+                            </div>
+
+                            <ul class="submenu">
+                                <li><a href="ivana.html">Ivana Phase-1</a></li>
+                                <!-- <li><a href="upcoming2.html">Project Two</a></li> -->
+                            </ul>
+                        </li>
+
+                        <!-- COMPLETED -->
+                        <!-- <li>
+              <a href="project.html">Completed</a>
+            </li> -->
+                    </ul>
+                </li>
+
+                <li><a href="Aboutus.html">About us</a></li>
+                <li><a href="CSR.html">CSR</a></li>
+                <li><a href="PRE.html">Press Release & Events</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+
+
+
+            </ul>
+
+            <center>
+                <a href="index.html"> <img src="Assets/anvita-blue.svg" class="head-logo mt-2" alt="Logo"
+                        width="55%"></a>
+            </center>
+        </div>
+
+        <script>
+            function openMenu() {
+                document.getElementById("sideMenu").classList.add("active");
+                document.getElementById("overlay").classList.add("active");
+            }
+
+            function closeMenu() {
+                document.getElementById("sideMenu").classList.remove("active");
+                document.getElementById("overlay").classList.remove("active");
+            }
+        </script>
+
+        <!-- after side-menu -->
+        <script>
+            document.querySelectorAll(".has-submenu .arrow").forEach(arrow => {
+                arrow.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    this.closest(".has-submenu").classList.toggle("open");
+                });
+            });
+        </script>
+
+
+        <!-- ✅ Sticky Contact Button (Mobile Only) -->
+        <a href="Contact.html" class="sticky-contact-btn d-lg-none">Contact Us</a>
+        <!-- **** Navbar (fixed above slider) end -->
+
+
+
+        <div class="social-icons">
+            <a href="https://wa.link/yui73s" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.instagram.com/anvitagroup/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/theanvitagroup" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@anvitagroup" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/company/anvita-group/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://x.com/theanvitagroup" target="_blank">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+        </div>
+
+
+
+
+        <!-- ✅ Sticky Contact Button (Mobile Only) -->
+        <a href="Contact.html" class="sticky-contact-btn d-lg-none">Contact Us</a>
+        <div class="position-relative">
+
+
+            <section class="py-5 bg-light mt-5">
+                <div class="container">
+
+                    <h2 class="text-center mb-4">Press Release and Events</h2>
+
+                    <!-- DESKTOP GRID -->
+                    <div class="row g-4 d-none d-md-flex">
+
+                        <!-- VIDEO CARD -->
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/R0EAU6jDQJA?si=ksm347y92oyZ_a6-" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/R0EAU6jDQJA/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">Press meet with Srujana Media</h6>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/pdOX6LoXT8o?si=PH-ioJLWmZnHu7y9" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/pdOX6LoXT8o/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">TIMES Property show</h6>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/gTN-ozgE4TA?si=tWadfDEmplr2jGg6" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/gTN-ozgE4TA/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">SBI Mega Property Show </h6>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/Twksrm36omY?si=WTRx7IR0CI-2gNYF" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/Twksrm36omY/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">SUMAN TV Doctor Awards</h6>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/vkMAdrK4hFY?si=--upHSjJn6gfYGcT" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/vkMAdrK4hFY/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">CREDAI Proerty Show 2025</h6>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/-ykzYaCkB4Q?si=Cg1lVosIc5qqgPTF" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/-ykzYaCkB4Q/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">NAREDCO TELANGANA Property Show</h6>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/6YX9CnK2mIg?si=AIp_qhrmEdixD2xx" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/6YX9CnK2mIg/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">SUMAN TV Biggest Property EXPO</h6>
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="https://youtu.be/ocGCWFL3Rt8?si=NugXqJouFOAzdJvr" target="_blank"
+                                class="video-card">
+                                <img src="https://img.youtube.com/vi/ocGCWFL3Rt8/hqdefault.jpg" alt="">
+                                <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                            </a>
+                            <h6 style="color: black; text-align: center;">SBI MEGA Property EXPO 2025</h6>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MOBILE CAROUSEL -->
+                    <div id="videoCarousel" class="carousel slide d-md-none" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <!-- Each slide = one video -->
+                            <div class="carousel-item active">
+                                <a href="https://youtu.be/R0EAU6jDQJA?si=ksm347y92oyZ_a6-" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/R0EAU6jDQJA/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">Press meet with Srujana Media</h6>
+                            </div>
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/pdOX6LoXT8o?si=PH-ioJLWmZnHu7y9" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/pdOX6LoXT8o/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">TIMES Property show</h6>
+                            </div>
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/gTN-ozgE4TA?si=tWadfDEmplr2jGg6" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/gTN-ozgE4TA/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">SBI Mega Property Show </h6>
+                            </div>
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/Twksrm36omY?si=WTRx7IR0CI-2gNYF" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/Twksrm36omY/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">SUMAN TV Doctor Awards</h6>
+
+                            </div>
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/vkMAdrK4hFY?si=--upHSjJn6gfYGcT" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/vkMAdrK4hFY/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">CREDAI Proerty Show 2025</h6>
+
+                            </div>
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/-ykzYaCkB4Q?si=Cg1lVosIc5qqgPTF" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/-ykzYaCkB4Q/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">NAREDCO TELANGANA Property Show</h6>
+
+                            </div>
+
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/6YX9CnK2mIg?si=AIp_qhrmEdixD2xx" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/6YX9CnK2mIg/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">SUMAN TV Biggest Property EXPO</h6>
+                            </div>
+
+
+                            <div class="carousel-item">
+                                <a href="https://youtu.be/ocGCWFL3Rt8?si=NugXqJouFOAzdJvr" target="_blank"
+                                    class="video-card">
+                                    <img src="https://img.youtube.com/vi/ocGCWFL3Rt8/hqdefault.jpg" alt="">
+                                    <img src="Assets/play-button.png" alt="Play" class="play-btn">
+                                </a>
+                                <h6 style="color: black; text-align: center;">SBI MEGA Property EXPO 2025</h6>
+
+                            </div>
+
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- footer and above section-->
+
+
+            <div class="footer-new ">
+                <!-- Hero Section -->
+                <section class="heroo-section">
+                    <h1>Begin Your Journey With Anvita</h1>
+                    <p>Discover how our communities can elevate your lifestyle.<br> Connect with us today.</p>
+                    <button class="iv-explore-btn">Get a call back</button>
+                </section>
+
+                <!-- Footer Section -->
+                <section class="footer-section">
+                    <div class="footer-left">
+                        <img src="Assets/anvita-blue.svg" alt="Anvita Logo" width="50" />
+                        <p>Since 2005, we have been dedicated to crafting projects with unmatched quality and attention
+                            to
+                            detail,
+                            earning the trust of our clients.</p>
+                        <!-- <a href="#"><i class="bi bi-facebook fs-3"></i></a> <a href="#"><i -->
+                                class="bi bi-instagram fs-3"></i></a>
+                    </div>
+
+                    <div class="footer-center">
+                        <ul>
+                            <li><a href="Aboutus.html">About Us</a></li>
+                            <li><a href="Projectinnerpage.html">Projects</a></li>
+                            <li><a href="CSR.html">CSR</a></li>
+                            <!-- <li><a href="Gallery.html">Gallery</a></li> -->
+                        </ul>
+
+                        <ul>
+                            <li><a href="PRE.html">Press Release and Events</a></li>
+                            <!-- <li><a href="#">Terms & Conditions</a></li> -->
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-right">
+                        <p>+91-9912312399</p>
+                        <a href="mailto:info@anvitagroup.com">info@anvitagroup.com</a>
+                    </div>
+                </section>
+
+                <p class="copyright">
+                    © 2025 <strong>Anvita Group.</strong> All Rights Reserved.
+                </p>
+            </div>
+            <!-- footer and above section end-->
+
+        </div>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Animate each testimonial one by one
+            gsap.utils.toArray(".testimonial").forEach((card) => {
+                gsap.fromTo(card,
+                    { x: 200, opacity: 0 },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top 80%",
+                            end: "top 40%",
+                            scrub: true,   // ✅ syncs with scroll
+                        }
+                    }
+                );
+            });
+        </script>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <script>
+            AOS.init();
+        </script>
+        <script>
+
+            // Hero Section Slider
+            var swiper = new Swiper(".hero-slider", {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                effect: "fade",
+                speed: 1000
+            });
+
+            // AOS init
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+            var swiper = new Swiper(".hero-slider", {
+                loop: true,
+                autoplay: {
+                    delay: 10000000,
+                    disableOnInteraction: false,
+                },
+                effect: "fade",
+                speed: 2000,
+                fadeEffect: {
+                    crossFade: true // 🔥 this ensures only one text is visible
+                }
+            });
+
+            //Hero Section Slider end
+
+
+
+
+        </script>
+
+        <script>
+            $('.dropdown').mouseover(function () {
+                if ($('.navbar-toggler').is(':hidden')) {
+                    $(this).addClass('show').attr('aria-expanded', 'true');
+                    $(this).find('.dropdown-menu').addClass('show');
+                }
+            }).mouseout(function () {
+                if ($('.navbar-toggler').is(':hidden')) {
+                    $(this).removeClass('show').attr('aria-expanded', 'false');
+                    $(this).find('.dropdown-menu').removeClass('show');
+                }
+            });
+
+            // Go to the parent link on click
+            $('.dropdown > a').click(function () {
+                location.href = this.href;
+            });
+        </script>
+
+
+        <script>
+
+            // AOS init
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+            var swiper = new Swiper(".hero-slider", {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                effect: "fade",
+                speed: 2000,
+                fadeEffect: {
+                    crossFade: true // 🔥 this ensures only one text is visible
+                }
+            });
+        </script>
+
+
+
+        <!-- test -->
+
+        <script>
+            document.addEventListener("scroll", function () {
+                let navbar = document.querySelector(".custom-navbar") || document.querySelector('.header');
+                if (!navbar) return; // nothing to do if no navbar on page
+
+                if (window.scrollY > 50) {
+                    navbar.classList.add("navbar-scrolled");
+                } else {
+                    navbar.classList.remove("navbar-scrolled");
+                }
+            });
+        </script>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            const track = document.querySelector(".h-scroll-track");
+            const cards = gsap.utils.toArray(".h-scroll-card");
+
+            const gap = 40;
+
+            function setupScroll() {
+                const cardWidth = cards[0].getBoundingClientRect().width + gap;
+                const totalWidth = cardWidth * cards.length;
+                const viewportWidth = document.documentElement.clientWidth;
+
+                const scrollAmount = Math.max(0, totalWidth - viewportWidth);
+
+                gsap.killTweensOf(track);
+                ScrollTrigger.getAll().forEach(st => st.kill());
+
+                gsap.to(track, {
+                    x: -scrollAmount,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".h-scroll-section",
+                        start: "top top",
+                        end: () => "+=" + scrollAmount,
+                        scrub: 1,
+                        pin: true,
+
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                        onUpdate: self => {
+                            const index = Math.round(self.progress * (cards.length - 1));
+                            cards.forEach(c => c.classList.remove("is-active"));
+                            cards[index]?.classList.add("is-active");
+                        }
+                    }
+                });
+            }
+
+            setupScroll();
+            window.addEventListener("resize", setupScroll);
+
+            ScrollTrigger.matchMedia({
+
+                // 🖥 DESKTOP (unchanged)
+                "(min-width: 769px)": () => {
+                    setupScroll();
+                },
+
+                // 📱 MOBILE (ONLY change)
+                "(max-width: 768px)": () => {
+                    ScrollTrigger.getAll().forEach(st => st.kill());
+                    gsap.set(track, { clearProps: "transform" });
+                }
+
+            });
+        </script>
+        <script>
+            const pgCards = document.querySelectorAll('.pg-card');
+            const total = pgCards.length;
+            let pgActiveIndex = 0;
+
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            function getOffset(i) {
+                let diff = i - pgActiveIndex;
+                if (diff > total / 2) diff -= total;
+                if (diff < -total / 2) diff += total;
+                return diff;
+            }
+
+            function pgPositionCards() {
+                const mobile = isMobile();
+
+                pgCards.forEach((card, i) => {
+                    const offset = getOffset(i);
+
+                    /* MOBILE: ONLY ONE CARD */
+                    if (mobile) {
+                        if (offset === 0) {
+                            gsap.to(card, {
+                                x: 0,
+                                scale: 1,
+                                rotateY: 0,
+                                opacity: 1,
+                                zIndex: 10,
+                                duration: 0.6,
+                                ease: "power3.out"
+                            });
+                        } else {
+                            gsap.to(card, {
+                                opacity: 0,
+                                scale: 0.9,
+                                zIndex: 0,
+                                duration: 0.4
+                            });
+                        }
+                        return;
+                    }
+
+                    /* DESKTOP: 3 CARD CINEMATIC */
+                    if (offset === 0) {
+                        gsap.to(card, {
+                            x: 0,
+                            scale: 1.12,
+                            rotateY: 0,
+                            z: 200,
+                            opacity: 1,
+                            zIndex: 10,
+                            duration: 0.9,
+                            ease: "power3.out"
+                        });
+                    }
+                    else if (offset === -1) {
+                        gsap.to(card, {
+                            x: -420,
+                            scale: 0.92,
+                            rotateY: 22,
+                            opacity: 0.75,
+                            zIndex: 5,
+                            duration: 0.9,
+                            ease: "power3.out"
+                        });
+                    }
+                    else if (offset === 1) {
+                        gsap.to(card, {
+                            x: 420,
+                            scale: 0.92,
+                            rotateY: -22,
+                            opacity: 0.75,
+                            zIndex: 5,
+                            duration: 0.9,
+                            ease: "power3.out"
+                        });
+                    }
+                    else {
+                        gsap.to(card, {
+                            opacity: 0,
+                            scale: 0.8,
+                            zIndex: 0,
+                            duration: 0.6
+                        });
+                    }
+                });
+            }
+
+            pgPositionCards();
+
+            /* NAV */
+            document.querySelector('.pg-nav-next').onclick = () => {
+                pgActiveIndex = (pgActiveIndex + 1) % total;
+                pgPositionCards();
+            };
+
+            document.querySelector('.pg-nav-prev').onclick = () => {
+                pgActiveIndex = (pgActiveIndex - 1 + total) % total;
+                pgPositionCards();
+            };
+
+            /* REPOSITION ON RESIZE */
+            window.addEventListener('resize', pgPositionCards);
+        </script>
+
+        <script>
+            const carousel = document.getElementById('testimonialCarousel');
+
+            carousel.addEventListener('slid.bs.carousel', () => {
+                document.querySelectorAll('.carousel-item').forEach(item => {
+                    const video = item.querySelector('video');
+                    if (item.classList.contains('active')) {
+                        video.style.visibility = 'visible';
+                    } else {
+                        video.pause();
+                        video.currentTime = 0;
+                        video.style.visibility = 'hidden';
+                    }
+                });
+            });
+        </script>
+        <!-- <script>
+        const header = document.querySelector(".header");
+        const logo = document.querySelector(".logoo");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+                logo.src = "Assets/anvita-blue.png";
+            } else {
+                header.classList.remove("scrolled");
+                logo.src = "Assets/logo-light.png";
+            }
+        });
+
+
+    </script> -->
+
+
+
+
+</body>
+
+</html>

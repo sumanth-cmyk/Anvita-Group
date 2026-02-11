@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <!-- Bootstrap -->
+    <link rel="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/chronicle-display" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP ScrollTrigger (for scroll-based animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Chronicle Display" !important;
+            font-weight: 300 !important;
+
+        }
+
+
+        p {
+            font-size: 15px !important;
+            line-height: 1.6 !important;
+            color: #555;
+            font-weight: 400 !important;
+        }
+
+        .header.navbar-scrolled {
+            position: fixed;
+            background-color: white !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Default state */
+        .header span.span1,
+        .header span.span2,
+        .header span.span3 {
+            background: #000000;
+        }
+
+        .menu-btn {
+            color: black;
+        }
+
+        .main-heading {
+            margin-top: 30px;
+        }
+
+        /* Tabs section */
+
+        .innovations-section {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            /* padding: 60px 20px; */
+        }
+
+        .innovations-section h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .innovations-section h2 {
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 28px !important;
+        }
+
+        @media (max-width: 768px) {
+            .innovations-section h2 {
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 26px !important;
+            }
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 22px;
+            border-radius: 10px;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: "chronicle-display", sans-serif;
+            text-transform: capitalize;
+        }
+
+        .tab.active {
+            background: #ab904c;
+            color: #fff;
+            border-color: #ab904c;
+        }
+
+        /* Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .tab-text h3 {
+            margin-bottom: 14px;
+            font-size: 28px !important;
+            font-family: "chronicle-display" !important;
+        }
+
+        .tab-text p {
+            font-size: 15px;
+            line-height: 1.2;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .read-more {
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Image */
+        .tab-image {
+            position: relative;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .tab-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: #f5f5f5;
+        }
+
+        .tab-image .overlay-btn {
+            position: absolute;
+            left: 50%;
+            top: 86%;
+            transform: translate(-50%, -50%);
+            background: #ab904c;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 3;
+            opacity: 0.95;
+        }
+
+        .tab-image .overlay-btn:hover {
+            background: #bb9f5a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tab-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-text h3 {
+                font-size: 22px;
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 40px 0;
+            background: #f9f9f9;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .map-container {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .caption a {
+            font-size: 26px;
+            color: #c19537;
+            font-weight: 500;
+            font-family: "chronicle-display" !important;
+
+        }
+
+        .form-container h3 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #c19537;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #d5d5d5;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c19537;
+            box-shadow: 0 0 8px rgba(193, 149, 55, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: #c19537;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #a88530;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 40px 0;
+            }
+
+            .contact-section h2 {
+                font-size: 26px;
+                margin-bottom: 30px;
+            }
+
+            .contact-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .map-container {
+                min-height: 140px;
+            }
+        }
+
+
+        .header.scrolled {
+            background: #ffffff !important;
+            color: black;
+        }
+
+        /* --- Tabs Container --- */
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .tab-buttons button {
+            border: none;
+            background: #e6e8ee;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: "Chronicle Display" !important;
+            font-weight: 300 !important;
+        }
+
+        .tab-buttons button.active {
+            background: #ab904c !important;
+            color: white !important;
+        }
+
+        /* --- Tabs layout for mobile (3 top + 3 bottom) --- */
+        @media (max-width: 768px) {
+            .tab-buttons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 7px;
+                justify-items: center;
+                color: black;
+            }
+
+            .tab-buttons button {
+                width: 100%;
+                text-align: center;
+                font-size: 13px;
+                padding: 10px 5px;
+                white-space: normal;
+            }
+
+            .tab-content {
+                padding: 5px !important;
+            }
+        }
+
+        /* --- Tab Content --- */
+        .tab-content {
+            display: none;
+            padding-bottom: 40px 0;
+
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* --- Desktop: 3 columns equal height --- */
+        .image-slider1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            position: relative;
+        }
+
+        .image-slider {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            position: relative;
+        }
+
+        .slide {
+            text-align: center;
+            background-color: white;
+        }
+
+        .tab-content.active {
+            display: block;
+            background-color: white;
+        }
+
+        .slide img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 20px;
+            object-fit: cover;
+            transition: opacity 0.4s ease;
+            margin-bottom: 5px;
+        }
+
+        .caption {
+            margin-top: 8px;
+            font-size: 16px;
+            color: black;
+            font-family: "Maven Pro", sans-serif;
+            text-align: center;
+        }
+
+        .caption img.logo-iconn {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --- Mobile: 1 image visible + arrows bottom --- */
+        @media (max-width: 768px) {
+            .image-slider1 {
+                display: flex;
+                position: relative;
+                overflow: hidden;
+                height: auto;
+                justify-content: center;
+            }
+
+            .image-slider {
+                display: flex;
+                position: relative;
+                overflow: hidden;
+                height: auto;
+                justify-content: center;
+            }
+
+            .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .slide.active {
+                opacity: 1;
+                position: relative;
+            }
+
+            .slide img {
+                aspect-ratio: 16/9;
+                width: 100%;
+            }
+
+            /* Arrow container bottom center */
+            .arrow-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 25px;
+                margin-top: 20px;
+            }
+
+            .arrow {
+                /* background: rgba(171, 144, 76, 0.9); */
+                color: black;
+                border: none;
+                border-radius: 50%;
+                width: 32px;
+                height: 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .arrow:hover {
+                /* background: #8f783c; */
+            }
+
+            .tabs {
+                background-color: white;
+                margin-top: 40px;
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+        }
+
+        .tabs {
+            background-color: white;
+
+        }
+
+        .bg-text {
+            font-family: 'Maven Pro' !important;
+            ;
+        }
+
+        a {
+            /* color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1)); */
+            /* text-decoration: underline; */
+            color: white;
+            text-decoration: none;
+        }
+
+        .arrow {
+            position: unset;
+            right: 25px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        span.arrow {
+            background-color: none !important;
+            background-color: white;
+            color: black;
+            position: absolute;
+            flex: unset;
+            display: -webkit-inline-box;
+        }
+
+        .gallery-tit {
+            margin-top: 45px;
+            font-size: 28px !important;
+            text-align: center;
+
+        }
+
+        @media (max-width: 768px) {
+            .tab-buttons {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 7px;
+                justify-items: center;
+                color: black;
+            }
+
+            .gallery-tit {
+                margin-top: 0px;
+                font-size: 28px !important;
+                text-align: center;
+
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .tab-buttons button {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 10px 9px;
+                white-space: normal;
+            }
+
+            .caption {
+                margin-top: 8px;
+                font-size: 16px;
+                color: black;
+                font-family: "Maven Pro", sans-serif;
+                margin-bottom: 15px;
+            }
+
+            @media (max-width: 768px) {
+                .tabs {
+                    background-color: white;
+                    margin-top: 10px;
+                    padding-top: 2rem !important;
+                    padding-bottom: 0rem !important;
+                }
+            }
+
+            .tabs {
+                display: flex;
+                justify-content: center;
+                gap: 14px;
+                margin-bottom: 0px;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* navbae  */
+
+        .menu-top,
+        .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0px;
+        }
+
+        .menu-text {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .arrow {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* rotate arrow */
+        .has-submenu.open>.menu-link .arrow {
+            transform: rotate(90deg);
+        }
+
+        /* submenu animation */
+        /* reset submenu */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            padding-left: 0;
+            transition: max-height 0.35s ease, opacity 0.25s ease;
+        }
+
+        .has-submenu.open>.submenu {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* indent only child menu items */
+        .submenu>li>a,
+        .submenu>li>.menu-link {
+            padding-left: 32px;
+        }
+
+
+        /* mobile spacing */
+        @media (max-width: 768px) {
+            .menu-link {
+                /* padding: 14px 18px; */
+            }
+        }
+
+        /* overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 9998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* side menu */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #fff;
+            z-index: 9999;
+            padding: 30px 20px;
+            transition: right 0.35s ease;
+            overflow-y: auto;
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        .header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 90px;
+        }
+
+        /* LOGO – default (at end) */
+        .logo {
+            color: #fff;
+            font-size: 34px;
+            letter-spacing: 6px;
+            text-align: center;
+            justify-self: end;
+            text-align: center;
+            transition: justify-self 0.6s ease;
+        }
+
+        /* LOGO – when scrolled (centered) */
+        .header.scrolled .logo {
+            left: 50%;
+            right: auto;
+
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100px;
+            padding: 20px 60px;
+            background: transparent;
+            transition: background 0.3s ease;
+            z-index: 999;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+        }
+
+        /* when scrolled */
+        .header.scrolled {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* navbar */
+        .arrow-project {
+
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background-color: #ab904c;
+            color: white;
+
+        }
+
+        /* ===== HERO VIDEO FULL HEIGHT (DESKTOP ONLY) ===== */
+        .video-section {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .video-csr {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile: allow natural height */
+        @media (max-width: 768px) {
+            .video-section {
+                height: auto;
+                overflow: visible;
+            }
+
+            .video-csr {
+                height: auto;
+            }
+        }
+
+        /* ✅ Audio Control Button Styling */
+        .audio-control-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(100, 100, 100, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .audio-control-btn:hover {
+            background-color: rgba(100, 100, 100, 0.9);
+            transform: scale(1.1);
+        }
+
+        .audio-control-btn.muted {
+            background-color: rgba(100, 100, 100, 0.9);
+        }
+
+        .audio-control-btn.muted:hover {
+            background-color: rgba(100, 100, 100, 1);
+        }
+
+        @media (max-width: 768px) {
+            .audio-control-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 16px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* social icons */
+        .social-icons {
+            position: fixed;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 99999;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            background-color: #ab904c !important;
+            ;
+            color: #fff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        /* ✅ MOBILE BOTTOM STICKY */
+        @media (max-width: 768px) {
+            .social-icons {
+                top: auto;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                transform: none;
+                flex-direction: row;
+                justify-content: space-around;
+                background-color: white !important;
+                ;
+                padding: 12px 10px;
+                border-top: 1px solid #ddd;
+            }
+
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                background: #000;
+                font-size: 18px;
+            }
+        }
+
+        .logo-iconn {
+            height: 90px !important;
+            width: 200px !important;
+            display: block;
+            margin-bottom: 6px;
+            object-fit: contain !important;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <div class="header">
+        <div class="menu-btn" onclick="openMenu()">
+            MENU
+            <div class="hamburger">
+                <span class="span1"></span>
+                <span class="span2"></span>
+                <span class="span3"></span>
+            </div>
+        </div>
+
+        <div class="logo">
+            <a href="index.html"><img src="Assets/anvita-blue.svg" width="70%" /></a>
+        </div>
+
+        <div class="spacer"></div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+    <!-- Slide Menu -->
+    <div class="side-menu" id="sideMenu">
+
+        <div class="menu-close" onclick="closeMenu()">✕</div>
+        <ul class="menu-top">
+
+            <li><a href="index.html">Home</a></li>
+
+            <!-- PROJECTS -->
+            <li class="has-submenu">
+                <div class="menu-link">
+                    <a href="project.html" class="menu-text">Projects</a>
+                    <button class="arrow" type="button">→</button>
+                </div>
+
+                <ul class="submenu">
+
+                    <!-- ONGOING -->
+                        <li class="has-submenu">
+                            <div class="menu-link">
+                                <a href="project.html" class="menu-text">Ongoing</a>
+                                <button class="arrow" type="button">→</button>
+                            </div>
+
+                            <ul class="submenu">
+                                <li><a href="ivana.html">Ivana</a></li>
+                                <li><a href="highnine.html">High9</a></li>
+                                <li><a href="parkside.html">Parkside</a></li>
+                            </ul>
+                        </li>
+
+                    <!-- UPCOMING -->
+                    <li class="has-submenu">
+                        <div class="menu-link">
+                            <a href="project.html" class="menu-text">Completed</a>
+                            <button class="arrow" type="button">→</button>
+                        </div>
+
+                        <ul class="submenu">
+                            <li><a href="ivana.html">Ivana Phase-1</a></li>
+                            <!-- <li><a href="upcoming2.html">Project Two</a></li> -->
+                        </ul>
+                    </li>
+
+                    <!-- COMPLETED -->
+                    <!-- <li>
+              <a href="project.html">Completed</a>
+            </li> -->
+                </ul>
+            </li>
+
+            <li><a href="Aboutus.html">About us</a></li>
+            <li><a href="CSR.html">CSR</a></li>
+            <li><a href="PRE.html">Press Release & Events</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+
+
+
+        </ul>
+
+        <center>
+            <a href="index.html"> <img src="Assets/anvita-blue.svg" class="head-logo mt-2" alt="Logo" width="55%"></a>
+        </center>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById("sideMenu").classList.add("active");
+            document.getElementById("overlay").classList.add("active");
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
+    </script>
+
+    <!-- after side-menu -->
+    <script>
+        document.querySelectorAll(".has-submenu .arrow").forEach(arrow => {
+            arrow.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                this.closest(".has-submenu").classList.toggle("open");
+            });
+        });
+    </script>
+
+    <!-- ✅ Sticky Contact Button (Mobile Only) -->
+    <a href="Contact.html" class="sticky-contact-btn d-lg-none">Contact Us</a>
+
+
+    <section class="video-section">
+        <div class="video-wrapper">
+            <video class="video-csr" muted playsinline preload="metadata" controlsList="nodownload noplaybackrate"
+                disablePictureInPicture>
+                <source src="Assets/video.mp4" type="video/mp4">
+            </video>
+
+            <!-- Custom Audio Control Button -->
+            <button class="audio-control-btn" id="audioControlBtn" title="Unmute audio">
+                <i class="fas fa-volume-mute"></i>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.querySelector(".video-csr");
+            const audioControlBtn = document.getElementById("audioControlBtn");
+
+            if (!video || !audioControlBtn) return;
+
+            // Start with muted and autoplay
+            video.muted = true;
+            audioControlBtn.classList.add("muted");
+            audioControlBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            audioControlBtn.title = "Unmute audio";
+
+            // Attempt autoplay
+            const play = () => {
+                const p = video.play();
+                if (p !== undefined) {
+                    p.catch(() => {
+                        console.warn("Autoplay blocked by browser");
+                    });
+                }
+            };
+
+            video.addEventListener("loadedmetadata", play, { once: true });
+            document.addEventListener("touchstart", play, { once: true });
+
+            // Custom audio control button functionality
+            audioControlBtn.addEventListener("click", () => {
+                video.muted = !video.muted;
+
+                // Update button appearance and icon
+                if (video.muted) {
+                    audioControlBtn.classList.add("muted");
+                    audioControlBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    audioControlBtn.title = "Unmute audio";
+                } else {
+                    audioControlBtn.classList.remove("muted");
+                    audioControlBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    audioControlBtn.title = "Mute audio";
+                }
+            });
+        });
+    </script>
+
+
+
+    <div class="social-icons">
+        <a href="https://wa.link/yui73s" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.instagram.com/anvitagroup/" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.facebook.com/theanvitagroup" target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@anvitagroup" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/company/anvita-group/" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://x.com/theanvitagroup" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+
+    </div>
+    <h2 class="gallery-tit">Projects</h2>
+    <div class="container-fluid  tabs">
+
+        <!-- Tabs -->
+        <div class="tab-buttons">
+            <button class="active" data-tab="cat1">All</button>
+            <button data-tab="cat2">Ongoing</button>
+            <!-- <button data-tab="cat3">Upcoming</button> -->
+            <button data-tab="cat4">Completed</button>
+        </div>
+
+        <!-- Category 1 -->
+        <div id="cat1" class="tab-content active text-center">
+            <div class="image-slider1 position-relative">
+                <div class="slide active">
+                    <a href="Ivana.html"><img src="Assets/card-stacking-1.png" alt=""></a>
+                    <div class="caption">
+                        <a href="Ivana.html"><img src="Assets/coloured-ivana-logo-phase-1.png" alt="Ivana Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+                <div class="slide active">
+                    <a href="Ivana.html"><img src="Assets/ivana-phase2.jpg" alt=""></a>
+                    <div class="caption">
+                        <a href="Ivana.html"><img src="Assets/coloured-ivana-logo-phase-2.png" alt="Ivana Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <a href="highnine.html"><img src="Assets/card-stacking-3.png" alt=""></a>
+                    <div class="caption">
+                        <a href="highnine.html"><img src="Assets/coloured-highnine-logo.png" alt="High9 Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <a href="parkside.html"><img src="Assets/parside-hero.jpeg" alt=""></a>
+                    <div class="caption">
+                        <a href="parkside.html"><img src="Assets/coloured-parkisde-logo.png" alt="Parkside Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="arrow-controls d-md-none ">
+                <button class="arrow left arrow-project"><i class="bi bi-arrow-left-short"></i></button>
+                <button class="arrow right arrow-project"><i class="bi bi-arrow-right-short"></i></button>
+            </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div id="cat2" class="tab-content text-center ">
+            <div class="image-slider position-relative">
+
+                <div class="slide active">
+                    <a href="Ivana.html"><img src="Assets/ivana-phase2.jpg" alt=""></a>
+                    <div class="caption">
+                        <a href="Ivana.html"><img src="Assets/coloured-ivana-logo-phase-2.png" alt="Ivana Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <a href="highnine.html"><img src="Assets/card-stacking-3.png" alt=""></a>
+                    <div class="caption">
+                        <a href="highnine.html"><img src="Assets/coloured-highnine-logo.png" alt="High9 Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <a href="parkside.html"><img src="Assets/parside-hero.jpeg" alt=""></a>
+                    <div class="caption">
+                        <a href="parkside.html"><img src="Assets/coloured-parkisde-logo.png" alt="Parkside Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="arrow-controls d-md-none">
+                <button class="arrow left arrow-project"><i class="bi bi-arrow-left-short"></i></button>
+                <button class="arrow right arrow-project"><i class="bi bi-arrow-right-short"></i></button>
+            </div>
+        </div>
+        <!-- Category 2 -->
+        <div id="cat3" class="tab-content text-center ">
+            <div class="image-slider position-relative">
+                <div class="slide active">
+                    <a href="India.html"><img src="Assets/ivana-image.jpg" alt=""></a>
+                    <div class="caption">
+                        <a href="India.html"><img src="Assets/coloured-india-logo.png" alt="India Logo" width="50%"
+                                class="logo-iconn"></a>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="arrow-controls d-md-none">
+                <button class="arrow left"><i class="bi bi-arrow-left-short"></i></button>
+                <button class="arrow right"><i class="bi bi-arrow-right-short"></i></button>
+            </div>
+        </div>
+        <!-- Category 4 -->
+        <div id="cat4" class="tab-content text-center ">
+            <div class="image-slider position-relative">
+                <div class="slide active">
+                    <a href="Ivana.html"><img src="Assets/card-stacking-1.png" alt=""></a>
+                    <div class="caption">
+                        <a href="Ivana.html"><img src="Assets/coloured-ivana-logo-phase-1.png" alt="Ivana Logo"
+                                width="50%" class="logo-iconn"></a>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="arrow-controls d-md-none">
+                <button class="arrow left"><i class="bi bi-arrow-left-short"></i></button>
+                <button class="arrow right"><i class="bi bi-arrow-right-short"></i></button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- You can duplicate for cat3–cat6 -->
+    </div>
+    <script>
+        // --- Tab switching ---
+        const buttons = document.querySelectorAll('.tab-buttons button');
+        const contents = document.querySelectorAll('.tab-content');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const target = btn.getAttribute('data-tab');
+                contents.forEach(c => {
+                    c.classList.remove('active');
+                    if (c.id === target) c.classList.add('active');
+                });
+
+                initArrows();
+            });
+        });
+
+        // --- Arrow + AutoSlide ---
+        function initArrows() {
+            contents.forEach(content => {
+                const slides = content.querySelectorAll('.slide');
+                const leftArrow = content.querySelector('.arrow.left');
+                const rightArrow = content.querySelector('.arrow.right');
+
+                if (!slides.length) return;
+
+                let current = 0;
+                let autoSlide;
+
+                function showImage(index) {
+                    slides.forEach((item, i) => item.classList.toggle('active', i === index));
+                }
+
+                function nextImage() {
+                    current = (current + 1) % slides.length;
+                    showImage(current);
+                }
+
+                function prevImage() {
+                    current = (current - 1 + slides.length) % slides.length;
+                    showImage(current);
+                }
+
+                leftArrow?.addEventListener('click', () => {
+                    prevImage();
+                    restartAutoSlide();
+                });
+
+                rightArrow?.addEventListener('click', () => {
+                    nextImage();
+                    restartAutoSlide();
+                });
+
+                function startAutoSlide() {
+                    if (window.innerWidth <= 768) {
+                        autoSlide = setInterval(nextImage, 6000);
+                    }
+                }
+
+                function stopAutoSlide() {
+                    clearInterval(autoSlide);
+                }
+
+                function restartAutoSlide() {
+                    stopAutoSlide();
+                    startAutoSlide();
+                }
+
+                showImage(current);
+                startAutoSlide();
+
+                content.addEventListener('mouseleave', stopAutoSlide);
+            });
+        }
+
+        initArrows();
+    </script>
+
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-row">
+                <!-- Map Column -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3806.753397414265!2d78.37772732412479!3d17.423618301762396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAnvita%20Group%2C%206th%20floor%2C%20G%20Square%2C%20near%20Wells%20Fargo%2C%20Madhura%20Nagar%20Colony%2C%20Gachibowli%2C%20Raidurgam%2C%20Hyderabad%2C%20Telangana%20500104!5e0!3m2!1sen!2sin!4v1770300690255!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Form Column -->
+                <div class="form-container">
+                    <h3>QUICK INQUIRY</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your phone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openMenu() {
+            document.getElementById('sideMenu').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        function toggleSubmenu(element) {
+            if (element.querySelector('.submenu')) {
+                element.classList.toggle('open');
+            }
+        }
+    </script>
+
+    <!-- ✅ Sticky Contact Button (Mobile Only) -->
+    <a href="Contact.html" class="sticky-contact-btn d-lg-none">Contact Us</a>
+    <div class="about-us-section">
+        <h2 class="gallery-titlee text-center" data-aos="fade-down">
+            USA Projects
+        </h2>
+    </div>
+
+
+    <script>
+        const header = document.querySelector(".header");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+
+
+
+    <!-- Tabs section  -->
+
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                contents.forEach(c => c.classList.remove("active"));
+
+                tab.classList.add("active");
+                document.getElementById(tab.dataset.tab).classList.add("active");
+            });
+        });
+    </script>
+
+
+    <div class="footer-new">
+        <!-- Hero Section -->
+        <section class="heroo-section">
+            <h1>Begin Your Journey With Anvita</h1>
+            <p>Discover how our communities can elevate your lifestyle. Connect with us today.</p>
+            <button class="cta-btn">Get a call back</button>
+        </section>
+
+        <!-- Footer Section -->
+        <section class="footer-section">
+            <div class="footer-left">
+                <img src="Assets/anvita-blue.svg" alt="Anvita Logo" />
+                <p>Since 2005, we have been dedicated to crafting projects with unmatched quality and attention to
+                    detail,
+                    earning the trust of our clients.</p>
+                <!-- <a href="#"><i class="bi bi-facebook fs-3"></i></a> <a href="#"><i class="bi bi-instagram fs-3"></i></a> -->
+            </div>
+
+            <div class="footer-center">
+                <ul>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="Projectinnerpage.html">Projects</a></li>
+                    <li><a href="CSR.html">CSR</a></li>
+                    <li><a href="Gallery.html">Gallery</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="PRE.html">Press Release and Events</a></li>
+                    <!-- <li><a href="#">Terms & Conditions</a></li> -->
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <p>+91-9912312399</p>
+                <a href="mailto:info@anvitagroup.com">info@anvitagroup.com</a>
+            </div>
+        </section>
+
+        <p class="copyright">
+            © 2025 <strong>Anvita Group.</strong> All Rights Reserved.
+        </p>
+    </div>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- vid -->
+
+
+</body>
+
+</html>
